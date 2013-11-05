@@ -28,8 +28,10 @@
     return self;
 }
 
-- (void)viewDidLoad
-{    _weatherLocationPageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+- (void)viewDidLoad {
+    self.view.frame = [[UIScreen mainScreen] bounds];
+    
+    _weatherLocationPageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
     _weatherLocationPageController.dataSource = self;
     _weatherLocationPageController.view.frame = [[self view] bounds];
@@ -48,6 +50,8 @@
     NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
     
     [_weatherLocationPageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
+    [(UIScrollView *)_weatherLocationPageController setDelegate:self];
     
     [self addChildViewController:_weatherLocationPageController];
     [[self view] addSubview:_weatherLocationPageController.view];
@@ -68,6 +72,10 @@
     viewController.weatherLocationViewIndex = index;
     
     return viewController;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    NSLog(@"%f %f", scrollView.center.x, scrollView.center.y);
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {

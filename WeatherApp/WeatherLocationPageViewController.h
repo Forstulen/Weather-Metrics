@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WeatherLocationPageViewController : UIViewController <UIPageViewControllerDataSource> {
+@interface WeatherLocationPageViewController : UIViewController <UIPageViewControllerDataSource, UIScrollViewDelegate> {
     
     UIPageViewController    *_weatherLocationPageController;
 }

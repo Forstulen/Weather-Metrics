@@ -19,15 +19,8 @@ typedef enum  {
     WeatherLocationInformationTypeUnknown
 }WeatherLocationInformationType;
 
-typedef enum {
-    WeatherLocationTemperatureTypeCelsius = 0,
-    WeatherLocationTemperatureTypeFarenheit,
-    WeatherLocationTemperatureTypeUnknown
-}WeatherLocationTemperatureType;
-
 @interface WeatherLocation : NSObject {
     WeatherLocationInformationType  _weatherLocationInformationType;
-    WeatherLocationTemperatureType  _weatherLocationTemperatureType;
     
     NSNumber    *_weatherLocationID;
     NSNumber    *_weatherLocationTemp;
@@ -88,7 +81,5 @@ typedef enum {
 @property (nonatomic, readonly) BOOL        weatherLocationNightTime;
 @property (nonatomic, readwrite) BOOL       weatherLocationCurrent;
 @property (nonatomic, readwrite) BOOL       weatherLocationError;
-
-@property (nonatomic, readonly) WeatherLocationTemperatureType weatherLocationTemperatureType;
 
 @end

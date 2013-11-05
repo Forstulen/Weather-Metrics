@@ -28,7 +28,6 @@
 - (id) initWithDictionary:(NSDictionary *)dict withType:(WeatherLocationInformationType)type {
     if (self = [super init]) {
         _weatherLocationInformationType = type;
-        _weatherLocationTemperatureType = WeatherLocationTemperatureTypeCelsius;
         _weatherLocationCurrent = NO;
         _weatherLocationDailyForecasts = [[NSMutableArray alloc] init];
         _weatherLocationForecasts = [[NSMutableArray alloc] init];

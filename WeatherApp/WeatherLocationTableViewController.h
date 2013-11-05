@@ -17,5 +17,6 @@
 }
 
 - (void)handleRefresh;
+- (void)changeTemperatureType;
 
 @end

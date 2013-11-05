@@ -35,6 +35,8 @@
         locationManager.weatherUserLocationDelegate = self;
         [locationManager startUserLocation];
         _weatherLocationsAreLoad = NO;
+        _weatherLocationsTemperatureType = WeatherLocationTemperatureTypeFarenheit;
+        _weatherLocationsAlreadyDisplayCurrentLocation = NO;
         _weatherLocationsWaitingForCurrentLocation = YES;
         _weatherLocationsDownloadingNumber = 0;
         _weatherLocationsPendingNumber = 0;
@@ -180,6 +182,19 @@
     [_weatherLocationsDateFormatter setDateFormat:dateFormat];
     
     return [_weatherLocationsDateFormatter stringFromDate:date];
+}
+
+- (NSInteger)getConvertedTemperature:(NSInteger)temp {
+    switch (_weatherLocationsTemperatureType) {
+        case WeatherLocationTemperatureTypeCelsius:
+            return temp;
+        case WeatherLocationTemperatureTypeFarenheit:
+            return WEATHER_CELSIUS_TO_FARENHEIT(temp);
+        case WeatherLocationTemperatureTypeKelvin:
+            return WEATHER_CELSIUS_TO_KELVIN(temp);
+        default:
+            return temp;
+    }
 }
 
 #pragma mark -
@@ -352,7 +367,8 @@
 }
 
 - (void)checkRequests {
-    if (_weatherLocationsDownloadingNumber == _weatherLocationsPendingNumber && !_weatherLocationsWaitingForCurrentLocation) {
+    if (_weatherLocationsDownloadingNumber == _weatherLocationsPendingNumber && !_weatherLocationsWaitingForCurrentLocation && !_weatherLocationsAlreadyDisplayCurrentLocation) {
+        _weatherLocationsAlreadyDisplayCurrentLocation = YES;
         [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATIONS_UP_TO_DATE_WITH_CURRENT_LOCATION object:nil userInfo:@{@"index":[NSNumber numberWithInt:0]}];
     } else if (_weatherLocationsDownloadingNumber == _weatherLocationsPendingNumber) {
         [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATIONS_UP_TO_DATE object:nil];

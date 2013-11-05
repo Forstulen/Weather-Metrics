@@ -13,7 +13,9 @@
 // Seconds
 #define     WEATHER_API_DELAY_REQUEST   (60 * 60)
 
+// Convert
 #define     WEATHER_CELSIUS_TO_FARENHEIT(X) (X * 9 / 5 + 32)
+#define     WEATHER_CELSIUS_TO_KELVIN(X)    (X + 273.15f)
 
 // Meters
 #define     WEATHER_LOCATION_DISTANCE   (500)
@@ -33,9 +35,12 @@
 
 #define     WEATHER_LOCATION_CELL_CITY_PADDING  (10)
 
+// Notification or Sentences
 
 static NSString   *WEATHER_APP_ID = @"d944558995e9e4c990a10c9abee19492";
 static NSString   *WEATHER_SAVE_NAME = @"weatherLocations";
+
+static NSString   *WEATHER_GRAPH_VIEW_NOT_LOADED = @"Forecast is not available";
 
 static NSString   *WEATHER_LOCATION_WARNING_TITLE = @"The lenght of the name should be at least 3 characters";
 static NSString   *WEATHER_LOCATION_WARNING_BUTTON_TITLE = @"Ok";

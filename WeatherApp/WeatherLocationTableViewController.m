@@ -36,11 +36,24 @@
     [_weatherLocationTableRefresh addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:_weatherLocationTableRefresh];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateData) name:WEATHER_LOCATION_NEW object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopRefresh) name:WEATHER_LOCATIONS_UP_TO_DATE object:nil];
     self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self createHeader];
+    [self createFooter];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateData) name:WEATHER_LOCATION_NEW object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopRefresh) name:WEATHER_LOCATIONS_UP_TO_DATE object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopRefresh) name:WEATHER_LOCATIONS_UP_TO_DATE_WITH_CURRENT_LOCATION object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 - (void)handleRefresh {
@@ -70,6 +83,49 @@
     edit.frame = frame;
     
     self.tableView.tableHeaderView = view;
+}
+
+- (void)createFooter {
+    UIView  *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 100)];
+    UIButton *temperatureType = [UIButton buttonWithType:UIButtonTypeCustom];
+    NSString    *text = @"C° / F°";
+    NSMutableAttributedString *titleButton = [[NSMutableAttributedString alloc] initWithString:text];
+
+    WeatherLocationsManager *weatherLocationsManager = [WeatherLocationsManager sharedWeatherLocationsManager];
+    
+    if (weatherLocationsManager.weatherLocationsTemperatureType == WeatherLocationTemperatureTypeCelsius) {
+        [titleButton addAttribute: NSForegroundColorAttributeName value:[UIColor whiteColor] range:[text rangeOfString:@"C° "]];
+        [titleButton addAttribute: NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:[text rangeOfString:@"/ F°"]];
+    } else {
+        [titleButton addAttribute: NSForegroundColorAttributeName value:[UIColor whiteColor] range:[text rangeOfString:@" F°"]];
+        [titleButton addAttribute: NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:[text rangeOfString:@"C° /"]];
+    }
+    [temperatureType setAttributedTitle:titleButton forState:UIControlStateNormal];
+    
+    temperatureType.frame = view.frame;
+    temperatureType.titleLabel.numberOfLines = 1;
+    temperatureType.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [temperatureType setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    temperatureType.titleLabel.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:32];
+    [temperatureType addTarget:self action:@selector(changeTemperatureType) forControlEvents:UIControlEventTouchDown];
+
+    view.backgroundColor = [UIColor blackColor];
+    [view addSubview:temperatureType];
+    
+    self.tableView.tableFooterView = view;
+}
+
+- (void)changeTemperatureType {
+    WeatherLocationsManager *weatherLocationsManager = [WeatherLocationsManager sharedWeatherLocationsManager];
+    
+    if (weatherLocationsManager.weatherLocationsTemperatureType == WeatherLocationTemperatureTypeCelsius) {
+        weatherLocationsManager.weatherLocationsTemperatureType = WeatherLocationTemperatureTypeFarenheit;
+    } else {
+        weatherLocationsManager.weatherLocationsTemperatureType = WeatherLocationTemperatureTypeCelsius;
+    }
+    [self createFooter];
+    [self stopRefresh];
 }
 
 - (void)dealloc {

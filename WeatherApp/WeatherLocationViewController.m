@@ -43,15 +43,13 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)viewDidLoad {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildWeatherAndGraph) name:WEATHER_LOCATION_UPDATED object:nil];
-    [super viewDidLoad];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildWeatherAndGraph) name:WEATHER_LOCATION_UPDATED object:nil];
+    
     _weatherLocationsManager = [WeatherLocationsManager sharedWeatherLocationsManager];
-    [self buildWeatherAndGraph];
     [_weatherLocationsManager updateLocation:_weatherLocation];
+    [self buildWeatherAndGraph];
+
     [self.weatherIcon startAnimating];
     [super viewWillAppear:animated];
 }
@@ -79,7 +77,7 @@
     if (_weatherLocation && !_weatherLocation.weatherLocationError) {
         [self.weatherIcon createIcon:@"sun"];
         self.weatherBackground.backgroundColor = [_weatherLocationsManager getWeatherColorWithLocation:_weatherLocation];
-        self.weatherCurrentTemp.text = [NSString stringWithFormat:@"%d%@", _weatherLocation.weatherLocationTemp.intValue, @"°"];
+        self.weatherCurrentTemp.text = [NSString stringWithFormat:@"%d%@", [_weatherLocationsManager getConvertedTemperature:_weatherLocation.weatherLocationTemp.integerValue], @"°"];
         self.weatherCurrentHumidity.text = [NSString stringWithFormat:@"%d%%", _weatherLocation.weatherLocationHumidity.intValue];
         self.weatherCityName.text = _weatherLocation.weatherLocationName;
         self.weatherError.hidden = YES;
@@ -130,7 +128,10 @@
             if (maximumForecast <= 0)
                 break;
         }
+        self.weatherError.hidden = YES;
         self.weatherGraph.weatherGraphPoints = temperatures;
+    } else {
+        self.weatherError.hidden = NO;
     }
 }
 

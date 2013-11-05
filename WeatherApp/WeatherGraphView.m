@@ -42,6 +42,7 @@
     CGPoint         currentPoint;
     CGPoint         previousPoint;
     CGContextRef    context = UIGraphicsGetCurrentContext();
+    WeatherLocationsManager *weatherManager = [WeatherLocationsManager sharedWeatherLocationsManager];
     
     [graph moveToPoint:currentPoint];
     [graph setFlatness:0.3f];
@@ -68,7 +69,7 @@
     for (NSDictionary   *dict in self.weatherGraphPoints) {
         NSNumber    *value = [dict safeObjectForKey:@"temp"];
         NSDate      *date = [dict safeObjectForKey:@"date"];
-        NSString    *str = [NSString stringWithFormat:@"%d°", value.integerValue];
+        NSString    *str = [NSString stringWithFormat:@"%d°", [weatherManager getConvertedTemperature:value.integerValue]];
         UIFont      *font = [UIFont fontWithName:@"Helvetica" size:8];
         CGSize      size;
         

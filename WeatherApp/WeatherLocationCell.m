@@ -62,7 +62,7 @@
     _weatherLocationCityName.text = location.weatherLocationName;
     [_weatherLocationCityName sizeToFit];
     
-    _weatherLocationTemp.text = [NSString stringWithFormat:@"%d%@", _weatherLocation.weatherLocationTemp.intValue, @"°"];
+    _weatherLocationTemp.text = [NSString stringWithFormat:@"%d%@", [[WeatherLocationsManager sharedWeatherLocationsManager] getConvertedTemperature:_weatherLocation.weatherLocationTemp.integerValue], @"°"];
 }
 
 - (void)layoutSubviews {
