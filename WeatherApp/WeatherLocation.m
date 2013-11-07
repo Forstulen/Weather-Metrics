@@ -38,7 +38,6 @@
 
 - (void) updateWeatherLocation:(NSDictionary *)dict withType:(WeatherLocationInformationType)type {
     _weatherLocationInformationType = type;
-    _weatherLocationCurrent = NO;
     _weatherLocationDailyForecasts = [[NSMutableArray alloc] init];
     _weatherLocationForecasts = [[NSMutableArray alloc] init];
     [self buildWeatherLocationWithDictionary:dict];
@@ -70,7 +69,7 @@
         default:
             break;
     }
-    [self registerCurrentLocation:self];
+   // [self registerCurrentLocation:self];
 }
 
 - (void) buildWeatherLocationCurrentWeather:(NSDictionary *)dict {

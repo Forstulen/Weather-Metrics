@@ -43,6 +43,14 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.weatherCityName.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:12];
+    self.weatherCurrentTemp.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:24];
+    self.weatherCurrentHumidity.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:24];
+    self.weatherCurrentHumidity.textColor = WEATHER_HUMIDITY_BLUE_COLOR;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildWeatherAndGraph) name:WEATHER_LOCATION_UPDATED object:nil];
     
@@ -75,7 +83,7 @@
     _weatherLocation = [_weatherLocationsManager.weatherLocations objectAtIndex:self.weatherLocationViewIndex];
     
     if (_weatherLocation && !_weatherLocation.weatherLocationError) {
-        [self.weatherIcon createIcon:@"sun"];
+        [self.weatherIcon createIcon:[_weatherLocationsManager getIconFolder:_weatherLocation]];
         self.weatherBackground.backgroundColor = [_weatherLocationsManager getWeatherColorWithLocation:_weatherLocation];
         self.weatherCurrentTemp.text = [NSString stringWithFormat:@"%d%@", [_weatherLocationsManager getConvertedTemperature:_weatherLocation.weatherLocationTemp.integerValue], @"°"];
         self.weatherCurrentHumidity.text = [NSString stringWithFormat:@"%d%%", _weatherLocation.weatherLocationHumidity.intValue];
@@ -143,7 +151,7 @@
     for (WeatherLocation    *foreCast in _weatherLocation.weatherLocationForecasts) {
         WeatherAnimatedIcon     *gif = [subViews objectAtIndex:index];
         
-        [gif createIcon:@"sun"];
+        [gif createIcon:[_weatherLocationsManager getIconFolder:foreCast]];
         [gif startAnimating];
         ++index;
         

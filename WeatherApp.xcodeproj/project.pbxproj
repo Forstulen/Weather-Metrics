@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7F9B4A011818A3D800CB23C1 /* WeatherAnimatedIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B4A001818A3D800CB23C1 /* WeatherAnimatedIcon.m */; };
-		7F9B4A221819E13E00CB23C1 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 7F9B4A211819E13E00CB23C1 /* Images */; };
 		7F9B4A33181B32E500CB23C1 /* WeatherLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B4A32181B32E500CB23C1 /* WeatherLocationCell.m */; };
 		7F9B4A38181B4A9D00CB23C1 /* WeatherAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B4A37181B4A9D00CB23C1 /* WeatherAddCell.m */; };
 		7F9BD14F180D2ADE00019765 /* WeatherGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BD14E180D2ADE00019765 /* WeatherGraphView.m */; };
@@ -34,6 +33,28 @@
 		7FA0051B1807B48F008516E8 /* WeatherRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA005191807B48F008516E8 /* WeatherRootViewController.xib */; };
 		7FA0051E1807B663008516E8 /* WeatherLocationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA0051D1807B663008516E8 /* WeatherLocationsManager.m */; };
 		7FA005251808DD98008516E8 /* WeatherLocationPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA005241808DD98008516E8 /* WeatherLocationPageViewController.xib */; };
+		7FA05AD21829F17500EDA2A6 /* new_city_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA05AD11829F17500EDA2A6 /* new_city_icon@2x.png */; };
+		7FA07757182B25D500D41C7E /* collapse_arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07743182B25D500D41C7E /* collapse_arrow_down.png */; };
+		7FA07758182B25D500D41C7E /* collapse_arrow_down@2x..png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07744182B25D500D41C7E /* collapse_arrow_down@2x..png */; };
+		7FA07759182B25D500D41C7E /* collapse_arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07745182B25D500D41C7E /* collapse_arrow_up.png */; };
+		7FA0775A182B25D500D41C7E /* collapse_arrow_up@2x..png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07746182B25D500D41C7E /* collapse_arrow_up@2x..png */; };
+		7FA0775B182B25D500D41C7E /* current_location_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07747182B25D500D41C7E /* current_location_icon.png */; };
+		7FA0775C182B25D500D41C7E /* current_location_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07748182B25D500D41C7E /* current_location_icon@2x.png */; };
+		7FA0775D182B25D500D41C7E /* delete_city_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07749182B25D500D41C7E /* delete_city_icon.png */; };
+		7FA0775E182B25D500D41C7E /* delete_city_icon@2x..png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0774A182B25D500D41C7E /* delete_city_icon@2x..png */; };
+		7FA0775F182B25D500D41C7E /* gradient_bg_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0774B182B25D500D41C7E /* gradient_bg_0.png */; };
+		7FA07760182B25D500D41C7E /* gradient_bg_20.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0774C182B25D500D41C7E /* gradient_bg_20.png */; };
+		7FA07761182B25D500D41C7E /* gradient_bg_50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0774D182B25D500D41C7E /* gradient_bg_50.png */; };
+		7FA07762182B25D500D41C7E /* ios6 in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0774E182B25D500D41C7E /* ios6 */; };
+		7FA07763182B25D500D41C7E /* ios7 in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0774F182B25D500D41C7E /* ios7 */; };
+		7FA07764182B25D500D41C7E /* menu_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07750182B25D500D41C7E /* menu_button.png */; };
+		7FA07765182B25D500D41C7E /* menu_button@2x..png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07751182B25D500D41C7E /* menu_button@2x..png */; };
+		7FA07766182B25D500D41C7E /* new_city_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07752182B25D500D41C7E /* new_city_icon.png */; };
+		7FA07767182B25D500D41C7E /* new_city_icon@2x..png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07753182B25D500D41C7E /* new_city_icon@2x..png */; };
+		7FA07768182B25D500D41C7E /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07754182B25D500D41C7E /* splash_screen.png */; };
+		7FA07769182B25D500D41C7E /* splash_screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07755182B25D500D41C7E /* splash_screen@2x.png */; };
+		7FA0776A182B25D500D41C7E /* weather_metrics_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07756182B25D500D41C7E /* weather_metrics_logo.png */; };
+		7FA077C5182B743900D41C7E /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 7F9B4A211819E13E00CB23C1 /* Images */; };
 		7FB99B351805346B00C6D4DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB99B341805346B00C6D4DF /* Foundation.framework */; };
 		7FB99B371805346B00C6D4DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB99B361805346B00C6D4DF /* CoreGraphics.framework */; };
 		7FB99B391805346B00C6D4DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB99B381805346B00C6D4DF /* UIKit.framework */; };
@@ -113,6 +134,27 @@
 		7FA0051C1807B663008516E8 /* WeatherLocationsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherLocationsManager.h; sourceTree = "<group>"; };
 		7FA0051D1807B663008516E8 /* WeatherLocationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherLocationsManager.m; sourceTree = "<group>"; };
 		7FA005241808DD98008516E8 /* WeatherLocationPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherLocationPageViewController.xib; sourceTree = "<group>"; };
+		7FA05AD11829F17500EDA2A6 /* new_city_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new_city_icon@2x.png"; path = "WeatherApp/new_city_icon@2x.png"; sourceTree = "<group>"; };
+		7FA07743182B25D500D41C7E /* collapse_arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = collapse_arrow_down.png; path = WeatherApp/collapse_arrow_down.png; sourceTree = "<group>"; };
+		7FA07744182B25D500D41C7E /* collapse_arrow_down@2x..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "collapse_arrow_down@2x..png"; path = "WeatherApp/collapse_arrow_down@2x..png"; sourceTree = "<group>"; };
+		7FA07745182B25D500D41C7E /* collapse_arrow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = collapse_arrow_up.png; path = WeatherApp/collapse_arrow_up.png; sourceTree = "<group>"; };
+		7FA07746182B25D500D41C7E /* collapse_arrow_up@2x..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "collapse_arrow_up@2x..png"; path = "WeatherApp/collapse_arrow_up@2x..png"; sourceTree = "<group>"; };
+		7FA07747182B25D500D41C7E /* current_location_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = current_location_icon.png; path = WeatherApp/current_location_icon.png; sourceTree = "<group>"; };
+		7FA07748182B25D500D41C7E /* current_location_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "current_location_icon@2x.png"; path = "WeatherApp/current_location_icon@2x.png"; sourceTree = "<group>"; };
+		7FA07749182B25D500D41C7E /* delete_city_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete_city_icon.png; path = WeatherApp/delete_city_icon.png; sourceTree = "<group>"; };
+		7FA0774A182B25D500D41C7E /* delete_city_icon@2x..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "delete_city_icon@2x..png"; path = "WeatherApp/delete_city_icon@2x..png"; sourceTree = "<group>"; };
+		7FA0774B182B25D500D41C7E /* gradient_bg_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gradient_bg_0.png; path = WeatherApp/gradient_bg_0.png; sourceTree = "<group>"; };
+		7FA0774C182B25D500D41C7E /* gradient_bg_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gradient_bg_20.png; path = WeatherApp/gradient_bg_20.png; sourceTree = "<group>"; };
+		7FA0774D182B25D500D41C7E /* gradient_bg_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gradient_bg_50.png; path = WeatherApp/gradient_bg_50.png; sourceTree = "<group>"; };
+		7FA0774E182B25D500D41C7E /* ios6 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios6; path = WeatherApp/ios6; sourceTree = "<group>"; };
+		7FA0774F182B25D500D41C7E /* ios7 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios7; path = WeatherApp/ios7; sourceTree = "<group>"; };
+		7FA07750182B25D500D41C7E /* menu_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_button.png; path = WeatherApp/menu_button.png; sourceTree = "<group>"; };
+		7FA07751182B25D500D41C7E /* menu_button@2x..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu_button@2x..png"; path = "WeatherApp/menu_button@2x..png"; sourceTree = "<group>"; };
+		7FA07752182B25D500D41C7E /* new_city_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = new_city_icon.png; path = WeatherApp/new_city_icon.png; sourceTree = "<group>"; };
+		7FA07753182B25D500D41C7E /* new_city_icon@2x..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new_city_icon@2x..png"; path = "WeatherApp/new_city_icon@2x..png"; sourceTree = "<group>"; };
+		7FA07754182B25D500D41C7E /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = WeatherApp/splash_screen.png; sourceTree = "<group>"; };
+		7FA07755182B25D500D41C7E /* splash_screen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash_screen@2x.png"; path = "WeatherApp/splash_screen@2x.png"; sourceTree = "<group>"; };
+		7FA07756182B25D500D41C7E /* weather_metrics_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weather_metrics_logo.png; path = WeatherApp/weather_metrics_logo.png; sourceTree = "<group>"; };
 		7FB99B341805346B00C6D4DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FB99B361805346B00C6D4DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7FB99B381805346B00C6D4DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -246,9 +288,54 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		7FA0773F182B240200D41C7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7FA07742182B259D00D41C7E /* Images */,
+				7FA07741182B259600D41C7E /* Icons */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7FA07741182B259600D41C7E /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				7FA0774F182B25D500D41C7E /* ios7 */,
+				7FA0774E182B25D500D41C7E /* ios6 */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		7FA07742182B259D00D41C7E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7FA07750182B25D500D41C7E /* menu_button.png */,
+				7FA07751182B25D500D41C7E /* menu_button@2x..png */,
+				7FA07752182B25D500D41C7E /* new_city_icon.png */,
+				7FA07753182B25D500D41C7E /* new_city_icon@2x..png */,
+				7FA07754182B25D500D41C7E /* splash_screen.png */,
+				7FA07755182B25D500D41C7E /* splash_screen@2x.png */,
+				7FA07756182B25D500D41C7E /* weather_metrics_logo.png */,
+				7FA07743182B25D500D41C7E /* collapse_arrow_down.png */,
+				7FA07744182B25D500D41C7E /* collapse_arrow_down@2x..png */,
+				7FA05AD11829F17500EDA2A6 /* new_city_icon@2x.png */,
+				7FA07745182B25D500D41C7E /* collapse_arrow_up.png */,
+				7FA07746182B25D500D41C7E /* collapse_arrow_up@2x..png */,
+				7FA07747182B25D500D41C7E /* current_location_icon.png */,
+				7FA07748182B25D500D41C7E /* current_location_icon@2x.png */,
+				7FA07749182B25D500D41C7E /* delete_city_icon.png */,
+				7FA0774A182B25D500D41C7E /* delete_city_icon@2x..png */,
+				7FA0774B182B25D500D41C7E /* gradient_bg_0.png */,
+				7FA0774C182B25D500D41C7E /* gradient_bg_20.png */,
+				7FA0774D182B25D500D41C7E /* gradient_bg_50.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		7FB99B281805346B00C6D4DF = {
 			isa = PBXGroup;
 			children = (
+				7FA0773F182B240200D41C7E /* Resources */,
 				7F9B4A211819E13E00CB23C1 /* Images */,
 				7FA005061807653A008516E8 /* Additions */,
 				7FA004CA1806A330008516E8 /* AFNetworking */,
@@ -397,12 +484,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FA077C5182B743900D41C7E /* Images in Resources */,
+				7FA07760182B25D500D41C7E /* gradient_bg_20.png in Resources */,
+				7FA07762182B25D500D41C7E /* ios6 in Resources */,
+				7FA0775B182B25D500D41C7E /* current_location_icon.png in Resources */,
+				7FA07769182B25D500D41C7E /* splash_screen@2x.png in Resources */,
+				7FA07758182B25D500D41C7E /* collapse_arrow_down@2x..png in Resources */,
+				7FA0776A182B25D500D41C7E /* weather_metrics_logo.png in Resources */,
 				7FB99B531805346B00C6D4DF /* Images.xcassets in Resources */,
 				7FA005251808DD98008516E8 /* WeatherLocationPageViewController.xib in Resources */,
-				7F9B4A221819E13E00CB23C1 /* Images in Resources */,
+				7FA07763182B25D500D41C7E /* ios7 in Resources */,
+				7FA05AD21829F17500EDA2A6 /* new_city_icon@2x.png in Resources */,
+				7FA0775E182B25D500D41C7E /* delete_city_icon@2x..png in Resources */,
+				7FA07768182B25D500D41C7E /* splash_screen.png in Resources */,
+				7FA0775A182B25D500D41C7E /* collapse_arrow_up@2x..png in Resources */,
+				7FA0775F182B25D500D41C7E /* gradient_bg_0.png in Resources */,
 				7FB99B3F1805346B00C6D4DF /* InfoPlist.strings in Resources */,
 				7FA0050E180782E5008516E8 /* WeatherLocationViewController.xib in Resources */,
+				7FA07767182B25D500D41C7E /* new_city_icon@2x..png in Resources */,
+				7FA07766182B25D500D41C7E /* new_city_icon.png in Resources */,
+				7FA07761182B25D500D41C7E /* gradient_bg_50.png in Resources */,
+				7FA07765182B25D500D41C7E /* menu_button@2x..png in Resources */,
+				7FA07757182B25D500D41C7E /* collapse_arrow_down.png in Resources */,
+				7FA0775D182B25D500D41C7E /* delete_city_icon.png in Resources */,
+				7FA0775C182B25D500D41C7E /* current_location_icon@2x.png in Resources */,
+				7FA07759182B25D500D41C7E /* collapse_arrow_up.png in Resources */,
 				7FA00516180799B6008516E8 /* WeatherLocationTableViewController.xib in Resources */,
+				7FA07764182B25D500D41C7E /* menu_button.png in Resources */,
 				7FA0051B1807B48F008516E8 /* WeatherRootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,6 +677,7 @@
 				GCC_PREFIX_HEADER = "WeatherApp/WeatherApp-Prefix.pch";
 				INFOPLIST_FILE = "WeatherApp/WeatherApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -583,6 +692,7 @@
 				GCC_PREFIX_HEADER = "WeatherApp/WeatherApp-Prefix.pch";
 				INFOPLIST_FILE = "WeatherApp/WeatherApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

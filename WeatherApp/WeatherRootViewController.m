@@ -67,11 +67,11 @@
     } else {
         _weatherLocationPageViewController.weatherLocationPageStartIndex = index.integerValue;
     }
-    
+
     if (!self.currentController) {
         [self presentController:_weatherLocationPageViewController];
     } else if (self.currentController != _weatherLocationPageViewController) {
-        [self swapCurrentControllerWith:_weatherLocationPageViewController];
+            [self swapCurrentControllerWith:_weatherLocationPageViewController];
     }
 }
 
@@ -124,7 +124,7 @@
     viewController.view.frame = CGRectMake(0, newViewHeight, viewController.view.frame.size.width, viewController.view.frame.size.height);
     [self.view addSubview:viewController.view];
     
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:0.4
                      animations:^{
                          viewController.view.frame = self.currentController.view.frame;
                          self.currentController.view.frame = CGRectMake(0, currentViewHeight, self.currentController.view.frame.size.width, self.currentController.view.frame.size.height);
@@ -133,6 +133,7 @@
                          [self.currentController.view removeFromSuperview];
                          [self.currentController removeFromParentViewController];
                          self.currentController = viewController;                         [self.currentController didMoveToParentViewController:self];
+                         [_weatherLocationTableViewController focusLastSelectedCell];
                      }];
     
 }

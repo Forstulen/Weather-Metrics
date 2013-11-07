@@ -9,16 +9,17 @@
 #import "WeatherLocationsManager.h"
 #import "NSDictionaryAdditions.h"
 #import "WeatherGraphView.h"
+#import "defines.h"
 
 @implementation WeatherGraphView
 
 - (void) initializeWeatherGraphValue {
     self.weatherGraphPoints = [[NSArray alloc] init];
     self.weatherGraphOrigin = CGPointMake(0, self.frame.size.height);
-    self.weatherGraphStrokeColor = [UIColor redColor];
-    self.weatherGraphStrokeWidth = 2.0f;
-    self.weatherGraphPadding = 40.f;
-    self.weatherGraphRadiusDot = 12;
+    self.weatherGraphStrokeColor = WEATHER_GRAPH_LINE_COLOR;
+    self.weatherGraphStrokeWidth = WEATHER_GRAPH_LINE_THICKNESS;
+    self.weatherGraphPadding = WEATHER_GRAPH_PADDING;
+    self.weatherGraphRadiusDot = WEATHER_GRAPH_CIRCLE_DIAMETER;
 }
 
 - (id) initWithCoder:(NSCoder *)aCoder {
@@ -44,7 +45,7 @@
     CGContextRef    context = UIGraphicsGetCurrentContext();
     WeatherLocationsManager *weatherManager = [WeatherLocationsManager sharedWeatherLocationsManager];
     
-    [graph moveToPoint:currentPoint];
+    [graph moveToPoint:CGPointMake(-100, 100)];
     [graph setFlatness:0.3f];
     [graph setLineWidth:self.weatherGraphStrokeWidth];
     [self.weatherGraphStrokeColor setStroke];
@@ -70,7 +71,7 @@
         NSNumber    *value = [dict safeObjectForKey:@"temp"];
         NSDate      *date = [dict safeObjectForKey:@"date"];
         NSString    *str = [NSString stringWithFormat:@"%d°", [weatherManager getConvertedTemperature:value.integerValue]];
-        UIFont      *font = [UIFont fontWithName:@"Helvetica" size:8];
+        UIFont      *font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:8];
         CGSize      size;
         
         currentPoint.y = [self getRealValue:value.integerValue];
@@ -99,9 +100,9 @@
         rect.origin.y = 0;
         UILabel     *label = [[UILabel alloc] initWithFrame:rect];
         
-        label.font = [UIFont fontWithName:@"Helvetica" size:12];
+        label.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:16];
         label.textColor = [UIColor whiteColor];
-        label.text = [weatherManager getFormattedDate:date WithFormat:@"H"];
+        label.text = [weatherManager getFormattedDate:date WithFormat:@"h"];
         label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:label];
     }

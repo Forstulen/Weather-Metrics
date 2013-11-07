@@ -40,7 +40,7 @@
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:.8];
     pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
-    pageControl.backgroundColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor lightGrayColor];
     [super viewDidLoad];
 }
 
@@ -51,7 +51,6 @@
     
     [_weatherLocationPageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     
-    [(UIScrollView *)_weatherLocationPageController setDelegate:self];
     
     [self addChildViewController:_weatherLocationPageController];
     [[self view] addSubview:_weatherLocationPageController.view];
@@ -72,10 +71,6 @@
     viewController.weatherLocationViewIndex = index;
     
     return viewController;
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    NSLog(@"%f %f", scrollView.center.x, scrollView.center.y);
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {

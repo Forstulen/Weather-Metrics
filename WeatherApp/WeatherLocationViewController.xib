@@ -12,7 +12,6 @@
                 <outlet property="weatherCityName" destination="lfG-Vq-3mF" id="Q0L-O6-reM"/>
                 <outlet property="weatherCurrentHumidity" destination="y5J-qT-Zi0" id="alD-Jh-Mxb"/>
                 <outlet property="weatherCurrentTemp" destination="Ez2-rC-mhj" id="9jS-Fl-8vk"/>
-                <outlet property="weatherError" destination="Tza-bo-7de" id="67z-Ar-ZQ4"/>
                 <outlet property="weatherForeCastIcons" destination="dLf-PJ-ikg" id="XsV-Fc-5NA"/>
                 <outlet property="weatherIcon" destination="dUE-NF-Cxo" id="Jjc-Zv-Q6c"/>
                 <outlet property="weatherListButton" destination="bOv-L0-RqY" id="1KM-Yu-X5e"/>
@@ -23,12 +22,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jx9-03-GgL">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="188"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jx9-03-GgL">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="208"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfG-Vq-3mF">
-                            <rect key="frame" x="22" y="48" width="180" height="10"/>
+                            <rect key="frame" x="20" y="52" width="180" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="12"/>
@@ -36,7 +35,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ez2-rC-mhj">
-                            <rect key="frame" x="20" y="23" width="42" height="20"/>
+                            <rect key="frame" x="20" y="23" width="42" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
@@ -48,16 +47,16 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5J-qT-Zi0">
-                            <rect key="frame" x="62" y="23" width="60" height="20"/>
+                            <rect key="frame" x="64" y="23" width="60" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOv-L0-RqY">
-                            <rect key="frame" x="265" y="23" width="35" height="35"/>
+                            <rect key="frame" x="264" y="31" width="36" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" backgroundImage="Sun-icon1.png"/>
+                            <state key="normal" backgroundImage="menu_button.png"/>
                             <connections>
                                 <action selector="displayWeatherList:" destination="-1" eventType="touchUpInside" id="TH1-rX-UYt"/>
                             </connections>
@@ -65,8 +64,8 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLf-PJ-ikg">
-                    <rect key="frame" x="0.0" y="188" width="320" height="64"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLf-PJ-ikg">
+                    <rect key="frame" x="0.0" y="208" width="320" height="64"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBK-do-awP" customClass="WeatherAnimatedIcon">
@@ -91,57 +90,45 @@
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="Ckr-JE-cdI"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dH4-YO-EN7">
-                    <rect key="frame" x="0.0" y="252" width="320" height="188"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dH4-YO-EN7">
+                    <rect key="frame" x="0.0" y="272" width="320" height="208"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="168" translatesAutoresizingMaskIntoConstraints="NO" id="MvM-Ou-APd" customClass="WeatherGraphView">
-                    <rect key="frame" x="0.0" y="252" width="320" height="188"/>
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="188" translatesAutoresizingMaskIntoConstraints="NO" id="MvM-Ou-APd" customClass="WeatherGraphView">
+                    <rect key="frame" x="0.0" y="272" width="320" height="208"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tza-bo-7de">
-                    <rect key="frame" x="0.0" y="188" width="320" height="252"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oCw-Uu-1cu">
-                            <rect key="frame" x="108" y="71" width="104" height="89"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2E-Ek-L93">
-                            <rect key="frame" x="93" y="168" width="135" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <rect key="contentStretch" x="0.0" y="0.0" width="0.59999999999999964" height="1"/>
             <constraints>
-                <constraint firstItem="MvM-Ou-APd" firstAttribute="top" secondItem="dLf-PJ-ikg" secondAttribute="bottom" id="0EI-wN-lfQ"/>
-                <constraint firstAttribute="trailing" secondItem="dH4-YO-EN7" secondAttribute="trailing" id="0YC-Px-srJ"/>
-                <constraint firstItem="Tza-bo-7de" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="A0W-EE-cjd"/>
-                <constraint firstAttribute="bottom" secondItem="dH4-YO-EN7" secondAttribute="bottom" constant="30" id="BXL-1o-tGT"/>
-                <constraint firstAttribute="trailing" secondItem="Tza-bo-7de" secondAttribute="trailing" id="C4U-ik-msZ"/>
-                <constraint firstAttribute="bottom" secondItem="Tza-bo-7de" secondAttribute="bottom" constant="30" id="JFQ-fd-8Q6"/>
-                <constraint firstAttribute="bottom" secondItem="MvM-Ou-APd" secondAttribute="bottom" constant="30" id="JSr-kl-J9N"/>
-                <constraint firstItem="dH4-YO-EN7" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="K5t-Xu-UIb"/>
-                <constraint firstItem="Tza-bo-7de" firstAttribute="top" secondItem="jx9-03-GgL" secondAttribute="bottom" id="Uao-3U-lUM"/>
-                <constraint firstAttribute="trailing" secondItem="MvM-Ou-APd" secondAttribute="trailing" id="p5a-Mj-2TA"/>
-                <constraint firstItem="dH4-YO-EN7" firstAttribute="top" secondItem="dLf-PJ-ikg" secondAttribute="bottom" id="udN-ew-3VX"/>
-                <constraint firstItem="MvM-Ou-APd" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="zEA-Fe-rhg"/>
+                <constraint firstItem="dLf-PJ-ikg" firstAttribute="leading" secondItem="dH4-YO-EN7" secondAttribute="leading" id="3bA-II-lZu"/>
+                <constraint firstItem="jx9-03-GgL" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="8z1-Ld-ght"/>
+                <constraint firstItem="dH4-YO-EN7" firstAttribute="top" secondItem="MvM-Ou-APd" secondAttribute="top" id="BgJ-g8-PSk"/>
+                <constraint firstAttribute="trailing" secondItem="MvM-Ou-APd" secondAttribute="trailing" id="Gpd-hZ-BeT"/>
+                <constraint firstItem="dLf-PJ-ikg" firstAttribute="trailing" secondItem="dH4-YO-EN7" secondAttribute="trailing" id="JGF-XV-Wm5"/>
+                <constraint firstItem="MvM-Ou-APd" firstAttribute="height" secondItem="jx9-03-GgL" secondAttribute="height" id="KzL-6I-b7u"/>
+                <constraint firstItem="dLf-PJ-ikg" firstAttribute="trailing" secondItem="jx9-03-GgL" secondAttribute="trailing" id="ZXb-aQ-ebC"/>
+                <constraint firstItem="dH4-YO-EN7" firstAttribute="bottom" secondItem="MvM-Ou-APd" secondAttribute="bottom" id="asM-U7-4be"/>
+                <constraint firstItem="dLf-PJ-ikg" firstAttribute="leading" secondItem="jx9-03-GgL" secondAttribute="leading" id="ecH-Fs-qgj"/>
+                <constraint firstItem="dLf-PJ-ikg" firstAttribute="top" secondItem="jx9-03-GgL" secondAttribute="bottom" id="h8u-qw-1tW"/>
+                <constraint firstItem="MvM-Ou-APd" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="jtH-gr-sDH"/>
+                <constraint firstAttribute="trailing" secondItem="jx9-03-GgL" secondAttribute="trailing" id="kqb-mD-zGb"/>
+                <constraint firstAttribute="bottom" secondItem="MvM-Ou-APd" secondAttribute="bottom" id="pz5-s7-sG1"/>
+                <constraint firstItem="jx9-03-GgL" firstAttribute="top" secondItem="1" secondAttribute="top" id="r15-Uf-tKD"/>
+                <constraint firstItem="MvM-Ou-APd" firstAttribute="top" secondItem="dLf-PJ-ikg" secondAttribute="bottom" id="s8l-y7-dx3"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
-        <image name="Sun-icon1.png" width="256" height="256"/>
+        <image name="menu_button.png" width="35" height="35"/>
     </resources>
 </document>

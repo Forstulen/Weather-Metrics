@@ -94,86 +94,28 @@
 - (UIColor *)getWeatherColorWithLocation:(WeatherLocation *)loc {
     NSInteger       temp = loc.weatherLocationTemp.integerValue;
     
-    if (temp <= -46) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(115.f / 255.f) green:(99.f / 255.f) blue:(124.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(115.f / 255.f) green:(99.f / 255.f) blue:(124.f / 255.f) alpha:1.f];
-    } else if (temp >= -45 && temp <= -41) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(125.f / 255.f) green:(111.f / 255.f) blue:(140.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(125.f / 255.f) green:(111.f / 255.f) blue:(140.f / 255.f) alpha:1.f];
-    } else if (temp >= -40 && temp <= -36) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(121.f / 255.f) green:(120.f / 255.f) blue:(143.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(121.f / 255.f) green:(120.f / 255.f) blue:(143.f / 255.f) alpha:1.f];
-    } else if (temp >= -35 && temp <= -31) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(118.f / 255.f) green:(128.f / 255.f) blue:(147.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(118.f / 255.f) green:(128.f / 255.f) blue:(147.f / 255.f) alpha:1.f];
-    } else if (temp >= -30 && temp <= -26) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(114.f / 255.f) green:(137.f / 255.f) blue:(150.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(114.f / 255.f) green:(137.f / 255.f) blue:(150.f / 255.f) alpha:1.f];
-    } else if (temp >= -25 && temp <= -21) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(119.f / 255.f) green:(157.f / 255.f) blue:(165.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(119.f / 255.f) green:(157.f / 255.f) blue:(165.f / 255.f) alpha:1.f];
-    } else if (temp >= -20 && temp <= -16) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(124.f / 255.f) green:(176.f / 255.f) blue:(179.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(124.f / 255.f) green:(176.f / 255.f) blue:(179.f / 255.f) alpha:1.f];
-    } else if (temp >= -15 && temp <= -11) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(104.f / 255.f) green:(193.f / 255.f) blue:(184.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(104.f / 255.f) green:(193.f / 255.f) blue:(184.f / 255.f) alpha:1.f];
-    } else if (temp >= -10 && temp <= -6) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(80.f / 255.f) green:(191.f / 255.f) blue:(175.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(80.f / 255.f) green:(191.f / 255.f) blue:(175.f / 255.f) alpha:1.f];
-    } else if (temp >= -5 && temp <= 0) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(55.f / 255.f) green:(188.f / 255.f) blue:(165.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(55.f / 255.f) green:(188.f / 255.f) blue:(165.f / 255.f) alpha:1.f];
-    } else if (temp >= 1 && temp <= 5) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(94.f / 255.f) green:(189.f / 255.f) blue:(146.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(94.f / 255.f) green:(189.f / 255.f) blue:(146.f / 255.f) alpha:1.f];
-    } else if (temp >= 6 && temp <= 10) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(137.f / 255.f) green:(189.f / 255.f) blue:(133.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(137.f / 255.f) green:(189.f / 255.f) blue:(133.f / 255.f) alpha:1.f];
-    } else if (temp >= 11 && temp <= 15) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(174.f / 255.f) green:(190.f / 255.f) blue:(112.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(174.f / 255.f) green:(190.f / 255.f) blue:(112.f / 255.f) alpha:1.f];
-    } else if (temp >= 16 && temp <= 20) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(226.f / 255.f) green:(188.f / 255.f) blue:(68.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(226.f / 255.f) green:(188.f / 255.f) blue:(68.f / 255.f) alpha:1.f];
-    } else if (temp >= 21 && temp <= 25) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(254.f / 255.f) green:(180.f / 255.f) blue:(42.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(254.f / 255.f) green:(180.f / 255.f) blue:(42.f / 255.f) alpha:1.f];
-    } else if (temp >= 26 && temp <= 30) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(254.f / 255.f) green:(154.f / 255.f) blue:(41.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(254.f / 255.f) green:(154.f / 255.f) blue:(41.f / 255.f) alpha:1.f];
-    } else if (temp >= 31 && temp <= 35) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(254.f / 255.f) green:(129.f / 255.f) blue:(41.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(254.f / 255.f) green:(129.f / 255.f) blue:(41.f / 255.f) alpha:1.f];
-    } else if (temp >= 36 && temp <= 40) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(254.f / 255.f) green:(105.f / 255.f) blue:(41.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(254.f / 255.f) green:(105.f / 255.f) blue:(41.f / 255.f) alpha:1.f];
-    } else if (temp >= 41 && temp <= 45) {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(254.f / 255.f) green:(87.f / 255.f) blue:(54.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(254.f / 255.f) green:(87.f / 255.f) blue:(54.f / 255.f) alpha:1.f];
+    if (temp >= 41) {
+		return [UIColor colorWithRed:1 green:(75.f / 255.f) blue:(75.f / 255.f) alpha:1];
+    } else if (temp <= 40 && temp >= 31) {
+		return [UIColor colorWithRed:(251.f / 255.f) green:(105.f / 255.f) blue:(41.f / 255.f) alpha:1];
+    } else if (temp <= 30 && temp >= 21) {
+		return [UIColor colorWithRed:(251.f / 255.f) green:(151.f / 255.f) blue:(41.f / 255.f) alpha:1];
+    } else if (temp <= 20 && temp >= 11) {
+		return [UIColor colorWithRed:(237.f / 255.f) green:(176.f / 255.f) blue:(21.f / 255.f) alpha:1];
+    } else if (temp <= 10 && temp >= 1) {
+		return [UIColor colorWithRed:(159.f / 255.f) green:(186.f / 255.f) blue:(106.f / 255.f) alpha:1];
+    } else if (temp <= 0 && temp >= -9) {
+		return [UIColor colorWithRed:(55.f / 255.f) green:(185.f / 255.f) blue:(162.f / 255.f) alpha:1];
+    } else if (temp <= -10 && temp >= -19) {
+		return [UIColor colorWithRed:(95.f / 255.f) green:(156.f / 255.f) blue:(175.f / 255.f) alpha:1];
+    } else if (temp <= -20 && temp >= -29) {
+		return [UIColor colorWithRed:(75.f / 255.f) green:(113.f / 255.f) blue:(155.f / 255.f) alpha:1];
+    } else if (temp <= -30 && temp >= -39) {
+		return [UIColor colorWithRed:(75.f / 255.f) green:(102.f / 255.f) blue:(165.f / 255.f) alpha:1];
+    } else if (temp <= -40 && temp >= -49) {
+		return [UIColor colorWithRed:(94.f / 255.f) green:(74.f / 255.f) blue:(137.f / 255.f) alpha:1];
     } else {
-        if (loc.weatherLocationNightTime)
-            return [UIColor colorWithRed:(153.f / 255.f) green:(38.f / 255.f) blue:(54.f / 255.f) alpha:1.f];
-        return [UIColor colorWithRed:(255.f / 255.f) green:(75.f / 255.f) blue:(75.f / 255.f) alpha:1.f];
+        return [UIColor colorWithRed:(110.f / 255.f) green:(83.f / 255.f) blue:(127.f / 255.f) alpha:1];
     }
 }
 
@@ -181,7 +123,8 @@
     NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:format options:0 locale:[NSLocale systemLocale]];
     [_weatherLocationsDateFormatter setDateFormat:dateFormat];
     
-    return [_weatherLocationsDateFormatter stringFromDate:date];
+    // Trim 0
+    return [NSString stringWithFormat:@"%d", [_weatherLocationsDateFormatter stringFromDate:date].integerValue];
 }
 
 - (NSInteger)getConvertedTemperature:(NSInteger)temp {
@@ -194,6 +137,30 @@
             return WEATHER_CELSIUS_TO_KELVIN(temp);
         default:
             return temp;
+    }
+}
+
+- (NSString *)getIconFolder:(WeatherLocation *)loc {
+    NSString    *iconNameWithoutExt = [loc.weatherLocationIcon stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"nd"]];
+    
+    if (loc.weatherLocationNightTime) {
+        return WEATHER_NIGHT_LOCATION;
+    } else if ([iconNameWithoutExt isEqualToString:WEATHER_CLEAR_DESCRIPTION]) {
+        return WEATHER_SUNNY_LOCATION;
+    } else if ([iconNameWithoutExt isEqualToString:WEATHER_SHOWER_RAIN_DESCRIPTION] || [iconNameWithoutExt isEqualToString:WEATHER_RAIN_DESCRIPTION]) {
+        return WEATHER_RAINY_LOCATION;
+    } else if ([iconNameWithoutExt isEqualToString:WEATHER_FEW_CLOUDS_DESCRIPTION]) {
+        return WEATHER_PARTLY_CLOUDY_LOCATION;
+    } else if ([iconNameWithoutExt isEqualToString:WEATHER_MIST_DESCRIPTION]) {
+        return WEATHER_FOGGY_LOCATION;
+    } else if ([iconNameWithoutExt isEqualToString:WEATHER_SCATTERED_CLOUDS_DESCRIPTION] || [iconNameWithoutExt isEqualToString:WEATHER_BROKEN_CLOUDS_DESCRIPTION]) {
+        return WEATHER_CLOUDY_LOCATION;
+    } else if ([iconNameWithoutExt isEqualToString:WEATHER_SNOW_DESCRIPTION]) {
+        return WEATHER_SNOWY_LOCATION;
+    } else if ([iconNameWithoutExt isEqualToString:WEATHER_THUNDERSTORM_DESCRIPTION]) {
+        return WEATHER_THUNDERSTORM_LOCATION;
+    } else {
+        return WEATHER_WINDY_LOCATION;
     }
 }
 
@@ -290,6 +257,7 @@
         location = [[WeatherLocation alloc] initWithDictionary:result withType:type];
         
         if (location.weatherLocationName.length == 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATION_NEW object:nil];
             return;
         }
         
@@ -301,8 +269,8 @@
                 return;
             }
         }
-        [_weatherLocations addObject:location];
         [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATION_NEW object:nil];
+        [_weatherLocations addObject:location];
     } else {
         location = city;
         [location updateWeatherLocation:result withType:type];

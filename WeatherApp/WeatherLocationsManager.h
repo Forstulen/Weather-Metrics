@@ -48,6 +48,7 @@ typedef enum {
 - (UIColor *)getWeatherColorWithLocation:(WeatherLocation *)loc;
 - (NSString *)getFormattedDate:(NSDate *)date WithFormat:(NSString *)format;
 - (NSInteger)getConvertedTemperature:(NSInteger)temp;
+- (NSString *)getIconFolder:(WeatherLocation *)loc;
 
 @property (nonatomic, readwrite)    NSMutableArray *weatherLocations;
 @property (nonatomic, readwrite)    NSUInteger  weatherLocationsForecastCount;
@@ -55,6 +56,6 @@ typedef enum {
 @property (nonatomic, readonly)     WeatherLocation *weatherLocationCurrent;
 @property (nonatomic) NSUInteger    weatherLocationsMaxHourForecast;
 @property (nonatomic) NSUInteger    weatherLocationsMaxDailyForecast;
-@property (nonatomic, readwrite) WeatherLocationsTemperatureType    weatherLocationsTemperatureType;
+@property (nonatomic, readwrite)    WeatherLocationsTemperatureType    weatherLocationsTemperatureType;
 
 @end

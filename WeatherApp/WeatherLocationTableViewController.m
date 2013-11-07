@@ -23,7 +23,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        _weatherLocationTableRefresh = [UIRefreshControl new];
     }
     return self;
 }
@@ -33,13 +32,15 @@
     [super viewDidLoad];
     
     _weatherLocationTableRefresh = [UIRefreshControl new];
+    _weatherLocationLastSelectedCell = 0;
+    _weatherLocationIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, WEATHER_LOCATION_CELL_WIDTH, WEATHER_LOCATION_CELL_HEIGHT)];
     [_weatherLocationTableRefresh addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:_weatherLocationTableRefresh];
 
     self.clearsSelectionOnViewWillAppear = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self createHeader];
-    [self createFooter];
+    self.tableView.tableFooterView = _weatherLocationIndicator;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -66,39 +67,20 @@
 }
 
 - (void)createHeader {
-    UIView  *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 50)];
+    UIView  *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WEATHER_TABLE_VIEW_TOP_BAR_WIDTH, WEATHER_TABLE_VIEW_TOP_BAR_HEIGHT)];
     UILabel *edit = [UILabel new];
-    CGRect  frame;
-    
-    view.backgroundColor = [UIColor grayColor];
-    edit.text = WEATHER_LOCATION_HEADER_TABLE_VIEW;
-    edit.textAlignment = NSTextAlignmentCenter;
-    edit.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:18];
-    edit.textColor = [UIColor whiteColor];
-    [edit sizeToFit];
-    [view addSubview:edit];
-    frame = edit.frame;
-    frame.origin.x = (view.frame.size.width / 2) - (edit.frame.size.width / 2);
-    frame.origin.y = (view.frame.size.height / 2) - (edit.frame.size.height / 2);
-    edit.frame = frame;
-    
-    self.tableView.tableHeaderView = view;
-}
-
-- (void)createFooter {
-    UIView  *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 100)];
     UIButton *temperatureType = [UIButton buttonWithType:UIButtonTypeCustom];
     NSString    *text = @"C° / F°";
     NSMutableAttributedString *titleButton = [[NSMutableAttributedString alloc] initWithString:text];
-
+    
     WeatherLocationsManager *weatherLocationsManager = [WeatherLocationsManager sharedWeatherLocationsManager];
     
     if (weatherLocationsManager.weatherLocationsTemperatureType == WeatherLocationTemperatureTypeCelsius) {
-        [titleButton addAttribute: NSForegroundColorAttributeName value:[UIColor whiteColor] range:[text rangeOfString:@"C° "]];
-        [titleButton addAttribute: NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:[text rangeOfString:@"/ F°"]];
+        [titleButton addAttribute: NSForegroundColorAttributeName value:[UIColor whiteColor] range:[text rangeOfString:@"C°"]];
+        [titleButton addAttribute: NSForegroundColorAttributeName value:WEATHER_MEDIUM_GREY_HIGHLIGHT_COLOR range:[text rangeOfString:@"F°"]];
     } else {
-        [titleButton addAttribute: NSForegroundColorAttributeName value:[UIColor whiteColor] range:[text rangeOfString:@" F°"]];
-        [titleButton addAttribute: NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:[text rangeOfString:@"C° /"]];
+        [titleButton addAttribute: NSForegroundColorAttributeName value:[UIColor whiteColor] range:[text rangeOfString:@"F°"]];
+        [titleButton addAttribute: NSForegroundColorAttributeName value:WEATHER_MEDIUM_GREY_HIGHLIGHT_COLOR range:[text rangeOfString:@"C°"]];
     }
     [temperatureType setAttributedTitle:titleButton forState:UIControlStateNormal];
     
@@ -106,14 +88,35 @@
     temperatureType.titleLabel.numberOfLines = 1;
     temperatureType.titleLabel.textAlignment = NSTextAlignmentCenter;
     [temperatureType setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-
-    temperatureType.titleLabel.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:32];
-    [temperatureType addTarget:self action:@selector(changeTemperatureType) forControlEvents:UIControlEventTouchDown];
-
-    view.backgroundColor = [UIColor blackColor];
-    [view addSubview:temperatureType];
     
-    self.tableView.tableFooterView = view;
+    temperatureType.titleLabel.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:18];
+    [temperatureType addTarget:self action:@selector(changeTemperatureType) forControlEvents:UIControlEventTouchDown];
+    
+    [view addSubview:temperatureType];
+    [view addSubview:edit];
+    
+    CGRect  frame;
+    
+    view.backgroundColor = WEATHER_LIGH_GREY_BG_COLOR;
+    
+    edit.text = WEATHER_LOCATION_HEADER_TABLE_VIEW;
+    edit.textAlignment = NSTextAlignmentCenter;
+    edit.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:18];
+    edit.textColor = [UIColor whiteColor];
+    [edit sizeToFit];
+    frame = edit.frame;
+    frame.origin.x = (view.frame.size.width / 2) - (edit.frame.size.width / 2);
+    frame.origin.y = (view.frame.size.height / 2) - (edit.frame.size.height / 2);
+    edit.frame = frame;
+    
+    frame = temperatureType.frame;
+    frame.size.height = view.frame.size.height;
+    frame.size.width = view.frame.size.height;
+    frame.origin.x = view.frame.size.width - frame.size.width - 10;
+    frame.origin.y = 0;
+    temperatureType.frame = frame;
+    
+    self.tableView.tableHeaderView = view;
 }
 
 - (void)changeTemperatureType {
@@ -124,8 +127,12 @@
     } else {
         weatherLocationsManager.weatherLocationsTemperatureType = WeatherLocationTemperatureTypeCelsius;
     }
-    [self createFooter];
+    [self createHeader];
     [self stopRefresh];
+}
+
+- (void)focusLastSelectedCell {
+    [self.tableView scrollToRowAtIndexPath:_weatherLocationLastSelectedCell atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 - (void)dealloc {
@@ -139,6 +146,7 @@
 }
 
 - (void)updateData {
+    [_weatherLocationIndicator stopAnimating];
     [self.tableView reloadData];
 }
 
@@ -191,6 +199,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row != 0) {
         [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATION_SHOW_PAGE object:nil userInfo:@{@"index":[NSNumber numberWithInteger:indexPath.row - 1]}];
+        _weatherLocationLastSelectedCell = indexPath;
     } else {
         _weatherLocationAddLocation = [[UIAlertView alloc] initWithTitle:WEATHER_LOCATION_ALERT_TITLE message:nil
                                                          delegate:self
@@ -204,6 +213,7 @@
 
 - (void)checkNewLocation:(NSString *)name {
     if (name.length >= 3) {
+        [_weatherLocationIndicator startAnimating];
         [[WeatherLocationsManager sharedWeatherLocationsManager] addNewLocationWithName:name];
     } else {
         UIAlertView *warning = [UIAlertView new];
