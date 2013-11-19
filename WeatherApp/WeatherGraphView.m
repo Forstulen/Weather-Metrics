@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Romain Tholimet. All rights reserved.
 //
 
+#import "NSMutableAttributedString+Addition.h"
 #import "WeatherLocationsManager.h"
 #import "NSDictionaryAdditions.h"
 #import "WeatherGraphView.h"
@@ -45,14 +46,16 @@
     CGContextRef    context = UIGraphicsGetCurrentContext();
     WeatherLocationsManager *weatherManager = [WeatherLocationsManager sharedWeatherLocationsManager];
     
-    [graph moveToPoint:CGPointMake(-100, 100)];
+    // Set Bezier
+    self.weatherGraphDistanceBetweenPoints = self.frame.size.width / (self.weatherGraphPoints.count - 1);
+    currentPoint = [self getFirstPoint];
+    previousPoint = currentPoint;
+    [graph moveToPoint:CGPointMake(-self.weatherGraphDistanceBetweenPoints, currentPoint.y)];
     [graph setFlatness:0.3f];
     [graph setLineWidth:self.weatherGraphStrokeWidth];
     [self.weatherGraphStrokeColor setStroke];
-    self.weatherGraphDistanceBetweenPoints = self.frame.size.width / (self.weatherGraphPoints.count - 2);
     
-    currentPoint = [self getFirstPoint];
-    previousPoint = currentPoint;
+    // Draw Bezier
     for (NSDictionary   *dict in self.weatherGraphPoints) {
         NSNumber    *value = [dict safeObjectForKey:@"temp"];
         
@@ -65,30 +68,34 @@
     [graph stroke];
     [graph closePath];
     
+    // Draw spots
     currentPoint = [self getFirstPoint];
-    previousPoint = currentPoint;
+    BOOL    firstPoint = YES;
+    NSUInteger  number = 0;
     for (NSDictionary   *dict in self.weatherGraphPoints) {
         NSNumber    *value = [dict safeObjectForKey:@"temp"];
         NSDate      *date = [dict safeObjectForKey:@"date"];
-        NSString    *str = [NSString stringWithFormat:@"%d°", [weatherManager getConvertedTemperature:value.integerValue]];
-        UIFont      *font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:8];
+        NSString    *str = [NSString stringWithFormat:@"%ld°", [weatherManager getConvertedTemperature:value.integerValue]];
+        UIFont      *font = [UIFont fontWithName:WEATHER_GRAPH_FONT size:8];
         CGSize      size;
         
         currentPoint.y = [self getRealValue:value.integerValue];
         CGRect      rect = CGRectMake(currentPoint.x - self.weatherGraphRadiusDot, currentPoint.y - self.weatherGraphRadiusDot, self.weatherGraphRadiusDot << 1, self.weatherGraphRadiusDot << 1);
         
         CGContextSetLineWidth(context, 1.0);
-        CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+        CGContextSetFillColorWithColor(context, !firstPoint ? [UIColor blackColor].CGColor : WEATHER_GRAPH_LINE_COLOR.CGColor);
+        firstPoint = NO;
         CGContextFillEllipseInRect(context, rect);
-                CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
         CGContextSaveGState(context);
         CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
         size = [str sizeWithFont:font];
         rect.origin.y += (rect.size.height - size.height) / 2;
         [str drawInRect:rect withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentCenter];
-        previousPoint = currentPoint;
         currentPoint.x += self.weatherGraphDistanceBetweenPoints;
+        rect.origin.x = number * self.weatherGraphDistanceBetweenPoints;
+        rect.size.width = self.weatherGraphDistanceBetweenPoints;
         [self addLabel:date WithRect:rect];
+        ++number;
         CGContextRestoreGState(context);
     }
 
@@ -97,12 +104,12 @@
 - (void)addLabel:(NSDate *)date WithRect:(CGRect)rect {
     if (rect.origin.x >= 0 && rect.origin.x <= self.frame.size.width) {
         WeatherLocationsManager *weatherManager = [WeatherLocationsManager sharedWeatherLocationsManager];
-        rect.origin.y = 0;
+        rect.origin.y = WEATHER_GRAPH_LABEL_TOP_PADDING;
         UILabel     *label = [[UILabel alloc] initWithFrame:rect];
         
-        label.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:16];
-        label.textColor = [UIColor whiteColor];
-        label.text = [weatherManager getFormattedDate:date WithFormat:@"h"];
+        label.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:14];
+        label.textColor = WEATHER_MEDIUM_GREY_HIGHLIGHT_COLOR;
+        label.attributedText = [NSMutableAttributedString mutableAttributedStringWithText:[weatherManager getFormattedDate:date WithFormat:@"h"] withKerning:0];
         label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:label];
     }
@@ -114,7 +121,7 @@
     CGPoint     firstPointCoordinates;
     
     firstPointCoordinates.y = [self getRealValue:firstPoint.integerValue];
-    firstPointCoordinates.x = -self.weatherGraphDistanceBetweenPoints / 2;
+    firstPointCoordinates.x = self.weatherGraphDistanceBetweenPoints / 2;
     
     return firstPointCoordinates;
 }

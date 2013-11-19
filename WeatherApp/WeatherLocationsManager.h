@@ -36,12 +36,12 @@ typedef enum {
 
 + (id)sharedWeatherLocationsManager;
 
-- (void)loadRegistredLocations;
-- (void)saveRegistredLocations;
+- (void)loadRegisteredLocations;
+- (void)saveRegisteredLocations;
 
-- (void)addNewLocationWithLocation:(WeatherLocation *)city;
-- (void)addNewLocationWithName:(NSString *)city;
-- (void)delNewLocation:(WeatherLocation *)city;
+- (void)addLocationWithLocation:(WeatherLocation *)city;
+- (void)addLocationWithName:(NSString *)city;
+- (void)delLocation:(WeatherLocation *)city;
 - (BOOL)updateLocation:(WeatherLocation *)city;
 - (void)updateAllLocations;
 

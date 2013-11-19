@@ -9,6 +9,7 @@
 #import "WeatherAppDelegate.h"
 #import "WeatherRootViewController.h"
 #import "WeatherLocationsManager.h"
+#import "WeatherUserLocationManager.h"
 
 @implementation WeatherAppDelegate
 
@@ -22,6 +23,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
+    
+    [[WeatherLocationsManager sharedWeatherLocationsManager] loadRegisteredLocations];
 
     return YES;
 }
@@ -34,22 +37,22 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [[WeatherLocationsManager sharedWeatherLocationsManager] saveRegistredLocations];
+    [[WeatherLocationsManager sharedWeatherLocationsManager] saveRegisteredLocations];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [[WeatherLocationsManager sharedWeatherLocationsManager] updateAllLocations];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [[WeatherLocationsManager sharedWeatherLocationsManager] updateAllLocations];
+    [[WeatherUserLocationManager sharedWeatherUserLocationManager] startUserLocation];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [[WeatherLocationsManager sharedWeatherLocationsManager] saveRegistredLocations];
+    [[WeatherLocationsManager sharedWeatherLocationsManager] saveRegisteredLocations];
 }
 
 

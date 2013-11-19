@@ -42,6 +42,8 @@
         _weatherUserLocationManager.desiredAccuracy = _weatherUserLocationAccuracy;
         _weatherUserLocationManager.distanceFilter = _weatherUserLocationDistance;
         [_weatherUserLocationManager startUpdatingLocation];
+    } else {
+        [_weatherUserLocationManager startUpdatingLocation];
     }
 }
 

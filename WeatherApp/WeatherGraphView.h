@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WeatherGraphView : UIView {
-
+    UIView          *_weatherGraphMask;
 }
 
 @property (nonatomic, readwrite) NSArray        *weatherGraphPoints;

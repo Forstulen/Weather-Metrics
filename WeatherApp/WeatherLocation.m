@@ -8,6 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "WeatherUserLocationManager.h"
+#import "WeatherLocationsManager.h"
 #import "WeatherLocation.h"
 #import "defines.h"
 #import "NSDictionaryAdditions.h"
@@ -38,8 +39,6 @@
 
 - (void) updateWeatherLocation:(NSDictionary *)dict withType:(WeatherLocationInformationType)type {
     _weatherLocationInformationType = type;
-    _weatherLocationDailyForecasts = [[NSMutableArray alloc] init];
-    _weatherLocationForecasts = [[NSMutableArray alloc] init];
     [self buildWeatherLocationWithDictionary:dict];
 }
 
@@ -69,7 +68,6 @@
         default:
             break;
     }
-   // [self registerCurrentLocation:self];
 }
 
 - (void) buildWeatherLocationCurrentWeather:(NSDictionary *)dict {
@@ -124,13 +122,21 @@
     _weatherLocationName = city[@"name"];
     _weatherLocationID = city[@"id"];
     
+    _weatherLocationDailyForecasts = [[NSMutableArray alloc] init];
     //-------------------------------------------------------
     NSArray         *forecastsList = dict[@"list"];
+    WeatherLocationsManager *manager = [WeatherLocationsManager sharedWeatherLocationsManager];
+    NSInteger       numberMaximum = manager.weatherLocationsMaxDailyForecast;
     
     for (NSDictionary *dailyForecastDict in forecastsList) {
         WeatherLocation *dailyForecast = [[WeatherLocation alloc] initWithDictionary:dailyForecastDict withType:WeatherLocationInformationTypeDailyForecast];
         
         [_weatherLocationDailyForecasts addObject:dailyForecast];
+        --numberMaximum;
+        
+        if (numberMaximum <= 0) {
+            break;
+        }
     }
 }
 
@@ -175,13 +181,21 @@
     _weatherLocationName = city[@"name"];
     _weatherLocationID = city[@"id"];
     
+    _weatherLocationForecasts = [[NSMutableArray alloc] init];
     //-------------------------------------------------------
     NSArray         *forecastsList = dict[@"list"];
+    WeatherLocationsManager *manager = [WeatherLocationsManager sharedWeatherLocationsManager];
+    NSInteger       numberMaximum = manager.weatherLocationsMaxHourForecast;
     
     for (NSDictionary *forecastDict in forecastsList) {
         WeatherLocation *forecast = [[WeatherLocation alloc] initWithDictionary:forecastDict withType:WeatherLocationInformationType3HoursForecast];
         
         [_weatherLocationForecasts addObject:forecast];
+        --numberMaximum;
+        
+        if (numberMaximum <= 0) {
+                break;
+        }
     }
 }
 
@@ -214,16 +228,6 @@
         _weatherLocationRain = dict[@"rain"];
     if ([dict safeObjectForKey:@"clouds"])
         _weatherLocationClouds = dict[@"clouds"][@"all"];
-}
-
-- (void)registerCurrentLocation:(WeatherLocation *)city {
-    CLLocationCoordinate2D  coord = [[WeatherUserLocationManager sharedWeatherUserLocationManager] weatherUserCurrentLocation].coordinate;
-    
-    if (coord.latitude == city.weatherLocationCoord.latitude && coord.longitude == city.weatherLocationCoord.longitude) {
-        city.weatherLocationCurrent = YES;
-    } else {
-        city.weatherLocationCurrent = NO;
-    }
 }
 
 @end

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Romain Tholimet. All rights reserved.
 //
 
+#import "NSMutableAttributedString+Addition.h"
 #import "WeatherRootViewController.h"
 #import "WeatherLocationPageViewController.h"
 #import "WeatherLocationTableViewController.h"
@@ -16,6 +17,9 @@
 @interface WeatherRootViewController ()
 
 @property UIViewController  *currentController;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *weatherRootActivity;
+@property (weak, nonatomic) IBOutlet UILabel *weatherRootLoadingLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherRootBackground;
 
 @end
 
@@ -24,8 +28,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[WeatherLocationsManager sharedWeatherLocationsManager] loadRegistredLocations];
-        
         _weatherLocationPageViewController = [[WeatherLocationPageViewController alloc] initWithNibName:NSStringFromClass([WeatherLocationPageViewController class]) bundle:nil];
         _weatherLocationTableViewController = [[WeatherLocationTableViewController alloc] initWithNibName:NSStringFromClass([WeatherLocationTableViewController class]) bundle:nil];
         _weatherStartingViewType = WeatherTableViewController;
@@ -44,8 +46,15 @@
 
 - (void)viewDidLoad
 {
-    [self prefersStatusBarHidden];
     [super viewDidLoad];
+    [self.weatherRootActivity startAnimating];
+    self.weatherRootActivity.color = WEATHER_WHITE_COLOR;
+    self.weatherRootLoadingLabel.textAlignment = NSTextAlignmentCenter;
+    self.weatherRootLoadingLabel.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:14];
+    self.weatherRootLoadingLabel.textColor = WEATHER_WHITE_COLOR;
+    self.weatherRootLoadingLabel.attributedText = [NSMutableAttributedString mutableAttributedStringWithText:WEATHER_ROOT_LOADING withKerning:2];
+    
+    [self prefersStatusBarHidden];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -56,6 +65,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)removeLoadingState {
+    [self.weatherRootActivity removeFromSuperview];
+    [self.weatherRootLoadingLabel removeFromSuperview];
+    [self.weatherRootBackground removeFromSuperview];
 }
 
 - (void)presentPageViewController:(NSNotification *)notification {
@@ -69,6 +84,7 @@
     }
 
     if (!self.currentController) {
+        [self removeLoadingState];
         [self presentController:_weatherLocationPageViewController];
     } else if (self.currentController != _weatherLocationPageViewController) {
             [self swapCurrentControllerWith:_weatherLocationPageViewController];
@@ -77,6 +93,7 @@
 
 - (void)presentTableViewController {
     if (!self.currentController) {
+        [self removeLoadingState];
         [self presentController:_weatherLocationTableViewController];
     } else if (self.currentController != _weatherLocationTableViewController) {
         [self swapCurrentControllerWith:_weatherLocationTableViewController];
@@ -84,8 +101,12 @@
 }
 
 - (void)presentController:(UIViewController*)newContent{
-
-    if (self.currentController){
+    // After the first choice between PageView or TableView we do not need no longer these events
+    // We keep the other notification in case we cannot get a good location in a decent delay
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:WEATHER_LOCATIONS_UP_TO_DATE_WITH_CURRENT_LOCATION object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:WEATHER_LOCATIONS_UP_TO_DATE object:nil];
+     
+     if (self.currentController){
         [self removeCurrentViewController];
     }
 
@@ -124,7 +145,7 @@
     viewController.view.frame = CGRectMake(0, newViewHeight, viewController.view.frame.size.width, viewController.view.frame.size.height);
     [self.view addSubview:viewController.view];
     
-    [UIView animateWithDuration:0.4
+    [UIView animateWithDuration:0.5f
                      animations:^{
                          viewController.view.frame = self.currentController.view.frame;
                          self.currentController.view.frame = CGRectMake(0, currentViewHeight, self.currentController.view.frame.size.width, self.currentController.view.frame.size.height);
@@ -133,7 +154,7 @@
                          [self.currentController.view removeFromSuperview];
                          [self.currentController removeFromParentViewController];
                          self.currentController = viewController;                         [self.currentController didMoveToParentViewController:self];
-                         [_weatherLocationTableViewController focusLastSelectedCell];
+                         [_weatherLocationTableViewController focusPageViewed:_weatherLocationPageViewController.weatherLocationCurrentPage withPosition:UITableViewScrollPositionBottom];
                      }];
     
 }

@@ -14,7 +14,6 @@
 @interface WeatherLocationCell : UITableViewCell {
     WeatherLocation         *_weatherLocation;
     WeatherAnimatedIcon     *_weatherLocationIcon;
-    UIView                  *_weatherLocationColorTemp;
     UILabel                 *_weatherLocationCityName;
     UILabel                 *_weatherLocationTemp;
     UIImageView             *_weatherLocationCurrentLocation;

@@ -14,8 +14,8 @@
 
 @interface WeatherLocationViewController : UIViewController {
     WeatherLocationsManager *_weatherLocationsManager;
-    WeatherLocation *_weatherLocation;
-    WeatherAnimatedIcon *_weatherLocationIcon;
+    WeatherLocation         *_weatherLocation;
+
 }
 
 @property (nonatomic, readwrite) NSUInteger weatherLocationViewIndex;

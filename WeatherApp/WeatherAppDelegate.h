@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WeatherAppDelegate : UIResponder <UIApplicationDelegate> {
-
-    UIWindow    *_window;
+    
 }
 
 @property (nonatomic, strong) UIWindow  *window;

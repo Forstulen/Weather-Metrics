@@ -9,6 +9,7 @@
 #import "WeatherLocationPageViewController.h"
 #import "WeatherLocationViewController.h"
 #import "WeatherLocationsManager.h"
+#import "WeatherPageControl.h"
 #import "defines.h"
 
 @interface WeatherLocationPageViewController ()
@@ -34,24 +35,54 @@
     _weatherLocationPageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
     _weatherLocationPageController.dataSource = self;
+    _weatherLocationPageController.delegate = self;
     _weatherLocationPageController.view.frame = [[self view] bounds];
     _weatherLocationPageController.view.backgroundColor = self.view.backgroundColor;
     
-    UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:.8];
-    pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
-    pageControl.backgroundColor = [UIColor lightGrayColor];
     [super viewDidLoad];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     WeatherLocationViewController *initialViewController = [self viewControllerAtIndex:self.weatherLocationPageStartIndex];
-    
     NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
+
+    self.weatherLocationCurrentPage = self.weatherLocationPageStartIndex;
+    //We chose NO because there is a bug with it http://stackoverflow.com/questions/12939280/uipageviewcontroller-navigates-to-wrong-page-with-scroll-transition-style/12939384#12939384
+    [_weatherLocationPageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
-    [_weatherLocationPageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = WEATHER_LIGH_GREY_BG_COLOR;
+    pageControl.currentPageIndicatorTintColor = WEATHER_MEDIUM_GREY_HIGHLIGHT_COLOR;
+    pageControl.backgroundColor = [UIColor whiteColor];
     
-    
+/*    NSArray *subviews = _weatherLocationPageController.view.subviews;
+    UIPageControl *thisControl = nil;
+    for (int i=0; i<[subviews count]; i++) {
+        if ([[subviews objectAtIndex:i] isKindOfClass:[UIPageControl class]]) {
+            thisControl = (UIPageControl *)[subviews objectAtIndex:i];
+        }
+    }
+    for (UIView *img in thisControl.subviews) {
+        UIImageView* dot = nil;
+        
+        for (UIView* subview in img.subviews)
+        {
+            if ([subview isKindOfClass:[UIImageView class]])
+            {
+                dot = (UIImageView*)subview;
+                break;
+            }
+        }
+        
+        if (dot == nil)
+        {
+            dot = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, img.frame.size.width, img.frame.size.height)];
+            [img addSubview:dot];
+        }
+        dot.contentMode = UIViewContentModeScaleAspectFit;
+        dot.image = [UIImage imageNamed:WEATHER_CURRENT_LOCATION_IMAGE];
+    }
+*/    
     [self addChildViewController:_weatherLocationPageController];
     [[self view] addSubview:_weatherLocationPageController.view];
     [_weatherLocationPageController didMoveToParentViewController:self];
@@ -76,22 +107,24 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     NSUInteger index = [(WeatherLocationViewController*)viewController weatherLocationViewIndex];
     
+    _weatherLocationPageDirection = WeatherLocationPageViewControllerRightDirection;
+    --self.weatherLocationCurrentPage;
     if (index == 0) {
         return nil;
     }
     --index;
-    
     return [self viewControllerAtIndex:index];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     NSUInteger index = [(WeatherLocationViewController*)viewController weatherLocationViewIndex];
  
+    _weatherLocationPageDirection = WeatherLocationPageViewControllerLeftDirection;
+    ++self.weatherLocationCurrentPage;
     if (index == ([self presentationCountForPageViewController:_weatherLocationPageController] - 1)) {
         return nil;
     }
     ++index;
-    
     return [self viewControllerAtIndex:index];
 }
 
@@ -103,6 +136,14 @@
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
     return self.weatherLocationPageStartIndex;
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
+    if (completed) {
+        WeatherLocationViewController   *previousPage = [previousViewControllers lastObject];
+        
+        self.weatherLocationCurrentPage = previousPage.weatherLocationViewIndex;
+    }
 }
 
 @end

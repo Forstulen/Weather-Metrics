@@ -10,16 +10,16 @@
 
 @class WeatherLocationsManager;
 
-@interface WeatherLocationTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate> {
+@interface WeatherLocationTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate> {
     UIRefreshControl    *_weatherLocationTableRefresh;
     UIActivityIndicatorView *_weatherLocationIndicator;
     UIAlertView         *_weatherLocationAddLocation;
-    NSIndexPath         *_weatherLocationLastSelectedCell;
-    
+    UILabel             *_weatherLocationClock;
+    BOOL                _weatherLocationFailureAlert;
 }
 
 - (void)handleRefresh;
 - (void)changeTemperatureType;
-- (void)focusLastSelectedCell;
+- (void)focusPageViewed:(NSUInteger)index withPosition:(UITableViewScrollPosition)position;
 
 @end

@@ -11,7 +11,8 @@
 
 // Open Weather API Delay before requesting again
 #define     WEATHER_API_DELAY_REQUEST   (60 * 60)
-
+#define     WEATHER_REFRESH_INTERVAL    (60 * 30)
+#define     WEATHER_CLOCK_INTERVAL      (60)
 
 #define     WEATHER_CELSIUS_TO_FARENHEIT(X) (X * 9 / 5 + 32)
 #define     WEATHER_CELSIUS_TO_KELVIN(X)    (X + 273.15f)
@@ -21,7 +22,8 @@
 #define     WEATHER_LOCATION_TIME_TO_WAIT_BEFORE_REFRESH    (5)
 
 #define     WEATHER_ICON_DURATION   (0.5)
-
+#define     WEATHER_ICON_RANGE_MIN  (0)
+#define     WEATHER_ICON_RANGE_MAX  (5)
 
 // Weather Cell
 
@@ -29,18 +31,18 @@
 #define     WEATHER_LOCATION_CELL_HEIGHT    (113)
 #define     WEATHER_LOCATION_ROW_HEIGHT     (WEATHER_LOCATION_CELL_HEIGHT)
 
-#define     WEATHER_LOCATION_CELL_TEMP_WIDTH    (28)
+#define     WEATHER_LOCATION_CELL_TEMP_WIDTH    (80)
 #define     WEATHER_LOCATION_CELL_TEMP_HEIGHT   (WEATHER_LOCATION_CELL_HEIGHT)
 
-#define     WEATHER_LOCATION_CELL_CITY_WIDTH    (80)
+#define     WEATHER_LOCATION_CELL_CITY_WIDTH    (120)
 
-#define     WEATHER_LOCATION_CELL_ICON_WIDTH    (65)
-#define     WEATHER_LOCATION_CELL_ICON_HEIGHT    (65)
+#define     WEATHER_LOCATION_CELL_ICON_WIDTH    (60)
+#define     WEATHER_LOCATION_CELL_ICON_HEIGHT    (60)
 
-#define     WEATHER_LOCATION_CELL_CITY_PADDING  (10)
+#define     WEATHER_LOCATION_CELL_CITY_PADDING  (5)
 
-#define     WEATHER_LOCATION_CELL_CURRENT_ICON_WIDTH    (WEATHER_LOCATION_CELL_TEMP_WIDTH / 2)
-#define     WEATHER_LOCATION_CELL_CURRENT_ICON_HEIGHT       (WEATHER_LOCATION_CELL_CURRENT_ICON_WIDTH)
+#define     WEATHER_LOCATION_CELL_CURRENT_ICON_WIDTH  (25)
+#define     WEATHER_LOCATION_CELL_CURRENT_ICON_HEIGHT  (WEATHER_LOCATION_CELL_HEIGHT)
 
 static NSString   *WEATHER_CURRENT_LOCATION_IMAGE = @"current_location_icon.png";
 
@@ -53,12 +55,15 @@ static NSString   *WEATHER_CURRENT_LOCATION_IMAGE = @"current_location_icon.png"
 
 #define     WEATHER_GRAPH_CIRCLE_DIAMETER       (13)
 #define     WEATHER_GRAPH_LINE_THICKNESS        (3)
-#define     WEATHER_GRAPH_PADDING               (40)
+#define     WEATHER_GRAPH_PADDING               (55)
+#define     WEATHER_GRAPH_LABEL_TOP_PADDING     (10)
 
 // Notification or Sentences
 
 static NSString   *WEATHER_APP_ID = @"d944558995e9e4c990a10c9abee19492";
 static NSString   *WEATHER_SAVE_NAME = @"weatherLocations";
+
+static NSString   *WEATHER_ROOT_LOADING = @"Loading existing locations";
 
 static NSString   *WEATHER_GRAPH_VIEW_NOT_LOADED = @"Forecast is not available";
 
@@ -68,17 +73,29 @@ static NSString   *WEATHER_LOCATION_ALERT_VALIDATE_BUTTON_TITLE = @"Ok";
 static NSString   *WEATHER_LOCATION_ALERT_CANCEL_BUTTON_TITLE = @"Cancel";
 static NSString   *WEATHER_LOCATION_ALERT_TITLE = @"Select a city";
 
+static NSString   *WEATHER_LOCATION_ALERT_FAIL_TITLE = @"Weather Error";
+static NSString   *WEATHER_LOCATION_ALERT_FAIL_MESSAGE = @"An error has occured. Check the name of the city or your network";
+static NSString   *WEATHER_LOCATION_ALERT_FAIL_VALIDATE_BUTTON_TITLE = @"Ok";
+
+
 static NSString   *WEATHER_LOCATION_HEADER_TABLE_VIEW = @"Edit";
 
-static NSString   *WEATHER_LOCATION_FONT = @"HelveticaNeue-Light";
+static NSString   *WEATHER_LOCATION_FONT = @"Avenir-Light";
+static NSString   *WEATHER_LOCATION_FONT_NUMBER = @"HelveticaNeue-Light";
+static NSString   *WEATHER_GRAPH_FONT = @"HelveticaNeue-Bold";
 
 static NSString   *WEATHER_LOCATION_UPDATED = @"locationUpdated";
 static NSString   *WEATHER_LOCATION_NEW = @"newLocation";
+static NSString   *WEATHER_LOCATION_FAILED = @"failedLocation";
 static NSString   *WEATHER_LOCATIONS_UP_TO_DATE_WITH_CURRENT_LOCATION = @"locationsUpToDateWithCurrentLocation";
 static NSString   *WEATHER_LOCATIONS_UP_TO_DATE = @"locationsUpToDate";
 static NSString   *WEATHER_LOCATION_SHOW_LIST = @"showList";
 static NSString   *WEATHER_LOCATION_SHOW_PAGE = @"showPage";
+static NSString   *WEATHER_LOCATION_ERROR_TEMP = @"- -";
+static NSString   *WEATHER_LOCATION_ERROR_CITY = @"Nowhere";
+static NSString   *WEATHER_LOCATION_FORECAST_ERROR = @"Forecast Error";
 
+static NSString   *WEATHER_LOCATION_GRAPH_HINT = @"Hour Forecast";
 // Weather Color
 
 
@@ -94,6 +111,7 @@ static NSString   *WEATHER_LOCATION_SHOW_PAGE = @"showPage";
 // Weather add
 
 static NSString     *WEATHER_ADD_CITY_IMAGE = @"new_city_icon.png";
+static NSString     *WEATHER_LOCATION_CURRENT_SQUARE = @"current_square.png";
 
 // Icon names (OpenWeatherFront)
 
@@ -112,7 +130,7 @@ static NSString     *WEATHER_MIST_DESCRIPTION = @"50";
 static NSString     *WEATHER_SUNNY_LOCATION = @"sunny";
 static NSString     *WEATHER_CLOUDY_LOCATION = @"cloudy";
 static NSString     *WEATHER_FOGGY_LOCATION = @"foggy";
-static NSString     *WEATHER_PARTLY_CLOUDY_LOCATION = @"partly_cloudy";
+static NSString     *WEATHER_PARTLY_CLOUDY_LOCATION = @"partly";
 static NSString     *WEATHER_RAINY_LOCATION = @"rainy";
 static NSString     *WEATHER_SNOWY_LOCATION = @"snowy";
 static NSString     *WEATHER_THUNDERSTORM_LOCATION = @"thunderstorm";

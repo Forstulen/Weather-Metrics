@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WeatherLocationPageViewController : UIViewController <UIPageViewControllerDataSource, UIScrollViewDelegate> {
+typedef enum {
+    WeatherLocationPageViewControllerLeftDirection,
+    WeatherLocationPageViewControllerRightDirection
+}WeatherLocationPageViewControllerLastDirection;
+
+@interface WeatherLocationPageViewController : UIViewController <UIPageViewControllerDataSource, UIScrollViewDelegate, UIPageViewControllerDelegate> {
     
     UIPageViewController    *_weatherLocationPageController;
+    WeatherLocationPageViewControllerLastDirection            _weatherLocationPageDirection;
 }
 
 @property (nonatomic) UIPageViewController *weatherLocationPageController;
 @property (nonatomic, readwrite)    NSUInteger  weatherLocationPageStartIndex;
+@property (nonatomic, readwrite) NSUInteger weatherLocationCurrentPage;
 
 @end
