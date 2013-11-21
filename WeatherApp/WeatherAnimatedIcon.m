@@ -18,7 +18,7 @@
     return self;
 }
 
-- (void)createIcon:(NSString *)name {
+- (void)createIcon:(NSString *)name withShift:(BOOL)shift {
     NSFileManager   *fm = [NSFileManager defaultManager];
     NSError         *dataError = nil;
     NSString        *path = [NSString stringWithFormat:@"%@/%@", [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:WEATHER_ICON_FOLDER], name];
@@ -29,6 +29,7 @@
     
     if (!dataError) {
         for (NSString *file in fileNames) {
+            #pragma message("Change this PLEASE")
             //if ([file rangeOfString:@"@2x"].location == NSNotFound) {
                 UIImage     *image = [UIImage imageNamed:[[WEATHER_ICON_FOLDER stringByAppendingPathComponent:name] stringByAppendingPathComponent:file]];
 
@@ -40,6 +41,17 @@
     } else {
         NSLog(@"Files are missing. Cannot create animation with %@", _weatherAnimatedIconName);
     }
+    
+    if (shift && _weatherAnimatedIconImages.count) {
+        NSUInteger  nbShift = arc4random() % _weatherAnimatedIconImages.count;
+        
+        for (NSUInteger i = nbShift; i > 0; --i) {
+            id image = [_weatherAnimatedIconImages lastObject];
+            [_weatherAnimatedIconImages insertObject:image atIndex:0];
+            [_weatherAnimatedIconImages removeLastObject];
+        }
+    }
+    
     _weatherAnimatedIconName = name;
     self.weatherAnimatedIconDuration = WEATHER_ICON_DURATION;
     self.

@@ -262,7 +262,7 @@
             if ([location.weatherLocationName isEqualToString:loc.weatherLocationName]) {
                 location = loc;
                 [location updateWeatherLocation:result withType:type];
-                [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATION_UPDATED object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATION_UPDATED object:@{@"location":location}];
                 return;
             }
         }
@@ -271,7 +271,7 @@
     } else {
         location = city;
         [location updateWeatherLocation:result withType:type];
-        [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATION_UPDATED object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATION_UPDATED object:@{@"location":location}];
         [self checkError:error WithLocation:location];
     }
 }

@@ -57,7 +57,7 @@
 - (void)buildWeatherCell:(WeatherLocation *)location {
     _weatherLocation = location;
     
-    [_weatherLocationIcon createIcon:[[WeatherLocationsManager sharedWeatherLocationsManager] getIconFolder:_weatherLocation]];
+    [_weatherLocationIcon createIcon:[[WeatherLocationsManager sharedWeatherLocationsManager] getIconFolder:_weatherLocation]withShift:YES];
 //    _weatherLocationIcon.contentMode = UIViewContentModeCenter;
     [_weatherLocationIcon startAnimating];
     

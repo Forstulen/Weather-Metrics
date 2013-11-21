@@ -9,6 +9,7 @@
 #import "NSMutableAttributedString+Addition.h"
 #import "WeatherLocationViewController.h"
 #import "WeatherLocationsManager.h"
+#import "NSDictionaryAdditions.h"
 #import "WeatherAnimatedIcon.h"
 #import "WeatherGraphView.h"
 #import "WeatherLocation.h"
@@ -28,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIView *weatherGraphMask;
 @property (weak, nonatomic) IBOutlet UILabel *weatherGraphMaskHint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherGraphMaskLeadingAlignment;
-
+@property (weak, nonatomic) IBOutlet UIView *weatherContainerForecast;
 
 @end
 
@@ -63,11 +64,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildWeatherAndGraph) name:WEATHER_LOCATION_UPDATED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildWeatherAndGraph:) name:WEATHER_LOCATION_UPDATED object:nil];
     
     _weatherLocationsManager = [WeatherLocationsManager sharedWeatherLocationsManager];
     [_weatherLocationsManager updateLocation:_weatherLocation];
-    [self buildWeatherAndGraph];
+    [self buildWeatherAndGraph:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -85,17 +86,26 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATION_SHOW_LIST object:nil];
 }
 
-- (void)buildWeatherAndGraph {
+- (void)buildWeatherAndGraph:(NSNotification *)notif {
+    if (notif) {
+        NSDictionary    *userInfo = [notif userInfo];
+        WeatherLocation *loc = [userInfo safeObjectForKey:@"location"];
+        
+        if ([loc.weatherLocationName isEqual:_weatherLocation.weatherLocationName])
+            return;
+    }
+    
     [self buildWeatherPage];
     [self createIconList];
     [self retrieveTemperatureValuesForGraph];
 }
 
 - (void)buildWeatherPage {
+    
     _weatherLocation = [_weatherLocationsManager.weatherLocations objectAtIndex:self.weatherLocationViewIndex];
     
     if (_weatherLocation && !_weatherLocation.weatherLocationError) {
-        [self.weatherIcon createIcon:[_weatherLocationsManager getIconFolder:_weatherLocation]];
+        [self.weatherIcon createIcon:[_weatherLocationsManager getIconFolder:_weatherLocation]withShift:NO];
         [self.weatherIcon startAnimating];
         self.weatherBackground.backgroundColor = [_weatherLocationsManager getWeatherColorWithLocation:_weatherLocation];
         self.weatherForeCastIcons.backgroundColor = self.weatherBackground.backgroundColor;
@@ -156,10 +166,8 @@
             gif.backgroundColor = WEATHER_BLACK_HIGHLIGHT_BAR_COLOR;
         }
         firstElem = NO;
-        [gif createIcon:[_weatherLocationsManager getIconFolder:foreCast]];
-        float randomDelay = arc4random() % WEATHER_ICON_RANGE_MAX + WEATHER_ICON_RANGE_MIN;
-        [self performSelector:@selector(startAnimatingGifWithDelay:) withObject:gif afterDelay:randomDelay / 10.0f];
-        
+        [gif createIcon:[_weatherLocationsManager getIconFolder:foreCast]withShift:YES];
+        [gif startAnimating];
         ++index;
         
         if (subViews.count == index) {

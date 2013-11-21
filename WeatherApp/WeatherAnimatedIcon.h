@@ -13,7 +13,7 @@
     NSString        *_weatherAnimatedIconName;
 }
 
-- (void)createIcon:(NSString *)name;
+- (void)createIcon:(NSString *)name withShift:(BOOL)shift;
 
 @property   (nonatomic) CGFloat weatherAnimatedIconDuration;
 @property   (nonatomic, readonly)   NSString    *weatherAnimatedIconName;

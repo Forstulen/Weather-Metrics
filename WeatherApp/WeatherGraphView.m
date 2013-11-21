@@ -40,6 +40,8 @@
 }
 
 - (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    
     UIBezierPath    *graph = [UIBezierPath bezierPath];
     CGPoint         currentPoint;
     CGPoint         previousPoint;
