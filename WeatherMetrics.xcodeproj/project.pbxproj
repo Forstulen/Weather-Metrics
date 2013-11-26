@@ -19,7 +19,6 @@
 		7F9E51DA1838589B004A80E9 /* gradient_bg_50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9E51D91838589B004A80E9 /* gradient_bg_50.png */; };
 		7F9E51DD18385D21004A80E9 /* NSMutableAttributedString+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E51DC18385D21004A80E9 /* NSMutableAttributedString+Addition.m */; };
 		7F9E51DE1838B5C2004A80E9 /* weather_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F984F2B1835672D00AD737B /* weather_button.png */; };
-		7F9E51DF1838B5C2004A80E9 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 7F9B4A211819E13E00CB23C1 /* Images */; };
 		7F9E51E21838C90A004A80E9 /* WeatherPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E51E11838C90A004A80E9 /* WeatherPageControl.m */; };
 		7F9F80F31831F97F00CEED8C /* WeatherLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9F80F21831F97F00CEED8C /* WeatherLocationViewController.xib */; };
 		7FA004BC1806825F008516E8 /* WeatherLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA004BB1806825F008516E8 /* WeatherLocation.m */; };
@@ -59,6 +58,7 @@
 		7FA07768182B25D500D41C7E /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07754182B25D500D41C7E /* splash_screen.png */; };
 		7FA07769182B25D500D41C7E /* splash_screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07755182B25D500D41C7E /* splash_screen@2x.png */; };
 		7FA0776A182B25D500D41C7E /* weather_metrics_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA07756182B25D500D41C7E /* weather_metrics_logo.png */; };
+		7FAC75E318444A40005CCAF2 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 7F9B4A211819E13E00CB23C1 /* Images */; };
 		7FB99B351805346B00C6D4DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB99B341805346B00C6D4DF /* Foundation.framework */; };
 		7FB99B371805346B00C6D4DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB99B361805346B00C6D4DF /* CoreGraphics.framework */; };
 		7FB99B391805346B00C6D4DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB99B381805346B00C6D4DF /* UIKit.framework */; };
@@ -500,8 +500,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FAC75E318444A40005CCAF2 /* Images in Resources */,
 				7F9E51DE1838B5C2004A80E9 /* weather_button.png in Resources */,
-				7F9E51DF1838B5C2004A80E9 /* Images in Resources */,
 				7F984F31183568E000AD737B /* current_location_icon.png in Resources */,
 				7F984F32183568E000AD737B /* ios6 in Resources */,
 				7FA07769182B25D500D41C7E /* splash_screen@2x.png in Resources */,

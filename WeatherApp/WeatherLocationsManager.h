@@ -19,6 +19,11 @@ typedef enum {
     WeatherLocationTemperatureTypeUnknown
 }WeatherLocationsTemperatureType;
 
+typedef enum {
+    WeatherLocationFolderTypeBig = 0,
+    WeatherLocationFolderTypeForecast
+}WeatherLocationFolderType;
+
 @interface WeatherLocationsManager : NSObject <WeatherUserLocationDelegate> {
     OWMWeatherAPI   *_weatherAPI;
     WeatherLocation *_weatherLocationCurrent;
@@ -48,7 +53,7 @@ typedef enum {
 - (UIColor *)getWeatherColorWithLocation:(WeatherLocation *)loc;
 - (NSString *)getFormattedDate:(NSDate *)date WithFormat:(NSString *)format;
 - (NSInteger)getConvertedTemperature:(NSInteger)temp;
-- (NSString *)getIconFolder:(WeatherLocation *)loc;
+- (NSString *)getIconFolder:(WeatherLocation *)loc withFolderType:(WeatherLocationFolderType)type;
 
 @property (nonatomic, readwrite)    NSMutableArray *weatherLocations;
 @property (nonatomic, readwrite)    NSUInteger  weatherLocationsForecastCount;

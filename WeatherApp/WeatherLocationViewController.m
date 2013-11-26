@@ -105,7 +105,7 @@
     _weatherLocation = [_weatherLocationsManager.weatherLocations objectAtIndex:self.weatherLocationViewIndex];
     
     if (_weatherLocation && !_weatherLocation.weatherLocationError) {
-        [self.weatherIcon createIcon:[_weatherLocationsManager getIconFolder:_weatherLocation]withShift:NO];
+        [self.weatherIcon createIcon:[_weatherLocationsManager getIconFolder:_weatherLocation withFolderType:WeatherLocationFolderTypeBig]withShift:NO];
         [self.weatherIcon startAnimating];
         self.weatherBackground.backgroundColor = [_weatherLocationsManager getWeatherColorWithLocation:_weatherLocation];
         self.weatherForeCastIcons.backgroundColor = self.weatherBackground.backgroundColor;
@@ -166,7 +166,7 @@
             gif.backgroundColor = WEATHER_BLACK_HIGHLIGHT_BAR_COLOR;
         }
         firstElem = NO;
-        [gif createIcon:[_weatherLocationsManager getIconFolder:foreCast]withShift:YES];
+        [gif createIcon:[_weatherLocationsManager getIconFolder:foreCast withFolderType:WeatherLocationFolderTypeForecast]withShift:YES];
         [gif startAnimating];
         ++index;
         

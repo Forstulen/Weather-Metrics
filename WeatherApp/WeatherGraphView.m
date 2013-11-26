@@ -142,7 +142,7 @@
     
     controlPoint.x = prev.x + (cur.x - prev.x) / 2;
     controlPoint.y = cur.y;
-    
+
     return controlPoint;
 }
 

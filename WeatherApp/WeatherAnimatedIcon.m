@@ -29,14 +29,13 @@
     
     if (!dataError) {
         for (NSString *file in fileNames) {
-            #pragma message("Change this PLEASE")
-            //if ([file rangeOfString:@"@2x"].location == NSNotFound) {
+            if ([file rangeOfString:@"@2x"].location == NSNotFound) {
                 UIImage     *image = [UIImage imageNamed:[[WEATHER_ICON_FOLDER stringByAppendingPathComponent:name] stringByAppendingPathComponent:file]];
 
                 if (image) {
                     [_weatherAnimatedIconImages addObject:image];
                 }
-            //}
+            }
         }
     } else {
         NSLog(@"Files are missing. Cannot create animation with %@", _weatherAnimatedIconName);
@@ -57,7 +56,7 @@
     self.
     self.animationImages = _weatherAnimatedIconImages;
     self.animationDuration = self.weatherAnimatedIconDuration;
-    self.contentMode = UIViewContentModeScaleAspectFit;
+    self.contentMode = UIViewContentModeCenter;
 }
 
 @end

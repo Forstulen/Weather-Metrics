@@ -136,25 +136,36 @@
     }
 }
 
-- (NSString *)getIconFolder:(WeatherLocation *)loc {
+- (NSString *)getIconFolder:(WeatherLocation *)loc withFolderType:(WeatherLocationFolderType)type {
     NSString    *iconNameWithoutExt = [loc.weatherLocationIcon stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"nd"]];
+    NSString    *fullName;
+    
+    switch (type) {
+        case WeatherLocationFolderTypeBig:
+            fullName = [NSString stringWithString:WEATHER_FOLDER_CURRENT_WEATHER];
+            break;
+        case WeatherLocationFolderTypeForecast:
+            fullName = [NSString stringWithString:WEATHER_FOLDER_FORECAST_WEATHER];
+        default:
+            break;
+    }
     
     if (loc.weatherLocationNightTime && ([iconNameWithoutExt isEqualToString:WEATHER_CLEAR_DESCRIPTION] || [iconNameWithoutExt isEqualToString:WEATHER_FEW_CLOUDS_DESCRIPTION])) {
-        return WEATHER_NIGHT_LOCATION;
+        return [WEATHER_NIGHT_LOCATION stringByAppendingFormat:@" %@", fullName];
     } else if ([iconNameWithoutExt isEqualToString:WEATHER_CLEAR_DESCRIPTION]) {
-        return WEATHER_SUNNY_LOCATION;
+        return [WEATHER_SUNNY_LOCATION stringByAppendingFormat:@" %@", fullName];
     } else if ([iconNameWithoutExt isEqualToString:WEATHER_SHOWER_RAIN_DESCRIPTION] || [iconNameWithoutExt isEqualToString:WEATHER_RAIN_DESCRIPTION]) {
-        return WEATHER_RAINY_LOCATION;
+        return [WEATHER_RAINY_LOCATION stringByAppendingFormat:@" %@", fullName];
     } else if ([iconNameWithoutExt isEqualToString:WEATHER_FEW_CLOUDS_DESCRIPTION]) {
-        return WEATHER_PARTLY_CLOUDY_LOCATION;
+        return [WEATHER_PARTLY_CLOUDY_LOCATION stringByAppendingFormat:@" %@", fullName];
     } else if ([iconNameWithoutExt isEqualToString:WEATHER_MIST_DESCRIPTION]) {
-        return WEATHER_FOGGY_LOCATION;
+        return [WEATHER_FOGGY_LOCATION stringByAppendingFormat:@" %@",fullName];
     } else if ([iconNameWithoutExt isEqualToString:WEATHER_SCATTERED_CLOUDS_DESCRIPTION] || [iconNameWithoutExt isEqualToString:WEATHER_BROKEN_CLOUDS_DESCRIPTION]) {
-        return WEATHER_CLOUDY_LOCATION;
+        return [WEATHER_CLOUDY_LOCATION stringByAppendingFormat:@" %@",fullName];
     } else if ([iconNameWithoutExt isEqualToString:WEATHER_SNOW_DESCRIPTION]) {
-        return WEATHER_SNOWY_LOCATION;
+        return [WEATHER_SNOWY_LOCATION stringByAppendingFormat:@" %@",fullName];
     } else if ([iconNameWithoutExt isEqualToString:WEATHER_THUNDERSTORM_DESCRIPTION]) {
-        return WEATHER_THUNDERSTORM_LOCATION;
+        return [WEATHER_THUNDERSTORM_LOCATION stringByAppendingFormat:@" %@",fullName];
     } else {
         return nil;
     }

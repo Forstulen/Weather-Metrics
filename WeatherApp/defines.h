@@ -127,15 +127,17 @@ static NSString     *WEATHER_MIST_DESCRIPTION = @"50";
 
 // Icon location
 
+static NSString     *WEATHER_FOLDER_CURRENT_WEATHER = @"big";
+static NSString     *WEATHER_FOLDER_FORECAST_WEATHER = @"forecast";
+
 static NSString     *WEATHER_SUNNY_LOCATION = @"sunny";
 static NSString     *WEATHER_CLOUDY_LOCATION = @"cloudy";
 static NSString     *WEATHER_FOGGY_LOCATION = @"foggy";
-static NSString     *WEATHER_PARTLY_CLOUDY_LOCATION = @"partly_cloudy";
-static NSString     *WEATHER_RAINY_LOCATION = @"rainy";
+static NSString     *WEATHER_PARTLY_CLOUDY_LOCATION = @"partly";
+static NSString     *WEATHER_RAINY_LOCATION = @"rain";
 static NSString     *WEATHER_SNOWY_LOCATION = @"snowy";
-static NSString     *WEATHER_THUNDERSTORM_LOCATION = @"thunderstorm";
-static NSString     *WEATHER_WINDY_LOCATION = @"windy";
-static NSString     *WEATHER_NIGHT_LOCATION = @"night";
+static NSString     *WEATHER_THUNDERSTORM_LOCATION = @"thunder";
+static NSString     *WEATHER_NIGHT_LOCATION = @"starry";
 
 static NSString     *WEATHER_ICON_FOLDER = @"Images";
 
