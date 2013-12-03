@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Romain Tholimet. All rights reserved.
 //
 
+#import "defines.h"
+#import "TestFlight.h"
 #import "WeatherAppDelegate.h"
 #import "WeatherRootViewController.h"
 #import "WeatherLocationsManager.h"
@@ -15,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TestFlight takeOff:WEATHER_TEST_FLIGHT_ID];
     WeatherRootViewController   *rootController = [[WeatherRootViewController alloc] initWithNibName:@"WeatherRootViewController" bundle:nil];
     
     UINavigationController  *navController = [[UINavigationController alloc] initWithRootViewController:rootController];

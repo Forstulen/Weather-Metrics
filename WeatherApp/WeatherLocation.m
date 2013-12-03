@@ -28,6 +28,7 @@
 
 - (id) initWithDictionary:(NSDictionary *)dict withType:(WeatherLocationInformationType)type {
     if (self = [super init]) {
+        self.weatherLocationDisplayForecast = YES;
         _weatherLocationInformationType = type;
         _weatherLocationCurrent = NO;
         _weatherLocationDailyForecasts = [[NSMutableArray alloc] init];

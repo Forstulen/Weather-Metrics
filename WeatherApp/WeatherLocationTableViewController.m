@@ -41,6 +41,7 @@
     _weatherLocationClock = [UILabel new];
     
     [self.tableView addSubview:_weatherLocationTableRefresh];
+    self.tableView.tableFooterView = _weatherLocationIndicator;
     [self createClock];
     [self createHeader];
 }

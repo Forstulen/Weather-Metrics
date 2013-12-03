@@ -27,9 +27,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *weatherForecastCurrentSquare;
 @property (weak, nonatomic) IBOutlet UILabel *weatherForecastError;
 @property (weak, nonatomic) IBOutlet UIView *weatherGraphMask;
-@property (weak, nonatomic) IBOutlet UILabel *weatherGraphMaskHint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherGraphMaskLeadingAlignment;
-@property (weak, nonatomic) IBOutlet UIView *weatherContainerForecast;
+@property (weak, nonatomic) IBOutlet UIView *weatherSwitchView;
+@property (weak, nonatomic) IBOutlet WeatherAnimatedIcon *weatherSwitchIcon;
+
 
 @end
 
@@ -57,9 +58,29 @@
     self.weatherForeCastIcons.backgroundColor = WEATHER_BLACK_HIGHLIGHT_BAR_COLOR;
     self.weatherForecastError.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:14];
     self.weatherForecastError.textColor = WEATHER_MEDIUM_GREY_HIGHLIGHT_COLOR;
-    self.weatherGraphMaskHint.font = [UIFont fontWithName:WEATHER_LOCATION_FONT size:18];
-    self.weatherGraphMaskHint.textColor = WEATHER_MEDIUM_GREY_HIGHLIGHT_COLOR;
-    self.weatherGraphMaskHint.attributedText = [NSMutableAttributedString mutableAttributedStringWithText:WEATHER_LOCATION_GRAPH_HINT withKerning:2];
+    
+    UISwipeGestureRecognizer* swipeUpGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUpFrom:)];
+    swipeUpGestureRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+    
+    UISwipeGestureRecognizer* swipeDownGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeDownFrom:)];
+    swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    
+    [self.view addGestureRecognizer:swipeDownGestureRecognizer];
+    [self.view addGestureRecognizer:swipeUpGestureRecognizer];
+}
+
+- (void)handleSwipeUpFrom:(id)sender {
+    if (!_weatherLocation.weatherLocationDisplayForecast) {
+        _weatherLocation.weatherLocationDisplayForecast = YES;
+        [self animateViewFrame];
+    }
+}
+
+- (void)handleSwipeDownFrom:(id)sender {
+    if (_weatherLocation.weatherLocationDisplayForecast) {
+        _weatherLocation.weatherLocationDisplayForecast = NO;
+        [self animateViewFrame];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,6 +90,16 @@
     _weatherLocationsManager = [WeatherLocationsManager sharedWeatherLocationsManager];
     [_weatherLocationsManager updateLocation:_weatherLocation];
     [self buildWeatherAndGraph:nil];
+    
+    if (_weatherLocation.weatherLocationDisplayForecast) {
+        self.weatherSwitchView.alpha = 0.0f;
+        self.weatherSwitchView.hidden = YES;
+        [self displayWeatherGraphView];
+    } else {
+        self.weatherSwitchView.alpha = 1.0f;
+        self.weatherSwitchView.hidden = NO;
+        [self hideWeatherGraphView];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -94,39 +125,75 @@
         if ([loc.weatherLocationName isEqual:_weatherLocation.weatherLocationName])
             return;
     }
-    
     [self buildWeatherPage];
     [self createIconList];
     [self retrieveTemperatureValuesForGraph];
 }
 
 - (void)buildWeatherPage {
-    
     _weatherLocation = [_weatherLocationsManager.weatherLocations objectAtIndex:self.weatherLocationViewIndex];
-    
     if (_weatherLocation && !_weatherLocation.weatherLocationError) {
         [self.weatherIcon createIcon:[_weatherLocationsManager getIconFolder:_weatherLocation withFolderType:WeatherLocationFolderTypeBig]withShift:NO];
         [self.weatherIcon startAnimating];
+        [self.weatherSwitchIcon createIcon:[_weatherLocationsManager getIconFolder:_weatherLocation withFolderType:WeatherLocationFolderTypeBig]withShift:NO];
+        [self.weatherSwitchIcon startAnimating];
+        
         self.weatherBackground.backgroundColor = [_weatherLocationsManager getWeatherColorWithLocation:_weatherLocation];
+        self.weatherSwitchView.backgroundColor = [_weatherLocationsManager getWeatherColorWithLocation:_weatherLocation];
+        
         self.weatherForeCastIcons.backgroundColor = self.weatherBackground.backgroundColor;
         self.weatherCurrentTemp.attributedText = [NSMutableAttributedString mutableAttributedStringWithText:[NSString stringWithFormat:@"%ld%@", (long)[_weatherLocationsManager getConvertedTemperature:_weatherLocation.weatherLocationTemp.integerValue], @"°"] withKerning:0];
         self.weatherCityName.attributedText = [NSMutableAttributedString mutableAttributedStringWithText:_weatherLocation.weatherLocationName withKerning:2];
     } else {
         self.weatherCityName.attributedText = [NSMutableAttributedString mutableAttributedStringWithText:WEATHER_LOCATION_ERROR_CITY withKerning:2];
+        _weatherLocation.weatherLocationDisplayForecast = NO;
+        [self animateViewFrame];
+        if (_weatherLocation) {
+            [_weatherLocationsManager updateLocation:_weatherLocation];
+        }
     }
 }
 
 - (void)displayWeatherGraphView {
-    self.weatherGraphMaskLeadingAlignment.constant = self.weatherGraphMask.frame.size.width;
-    [UIView animateWithDuration:0.5f delay:0.1f options:UIViewAnimationOptionCurveEaseInOut animations:^() {
-        [self.view layoutIfNeeded];
-    } completion:nil];
+    if (_weatherLocation.weatherLocationDisplayForecast) {
+        self.weatherGraphMaskLeadingAlignment.constant = self.weatherGraphMask.frame.size.  width;
+        [UIView animateWithDuration:0.5f delay:0.1f options:UIViewAnimationOptionCurveEaseInOut animations:^() {
+            [self.view layoutIfNeeded];
+        } completion:nil];
+    }
 }
 
 - (void)hideWeatherGraphView {
-    self.weatherGraphMaskLeadingAlignment.constant = 0;
-    [UIView animateWithDuration:0.1f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^() {
-        [self.view layoutIfNeeded];
+    if (_weatherLocation.weatherLocationDisplayForecast) {
+        self.weatherGraphMaskLeadingAlignment.constant = 0;
+        [UIView animateWithDuration:0.1f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^() {
+            [self.view layoutIfNeeded];
+        } completion:nil];
+    }
+}
+
+
+- (IBAction)collapseGraph:(id)sender {
+    _weatherLocation.weatherLocationDisplayForecast = !_weatherLocation.weatherLocationDisplayForecast;
+    [self animateViewFrame];
+}
+
+- (IBAction)collapseSwitchView:(id)sender {
+    [self collapseGraph:nil];
+}
+
+- (void)animateViewFrame {
+    self.weatherSwitchView.alpha = 0.0f;
+    [UIView animateWithDuration:.2f delay:0 options:UIViewAnimationOptionTransitionCrossDissolve    animations:^() {
+        if (_weatherLocation.weatherLocationDisplayForecast) {
+            self.weatherSwitchView.alpha = 0.0f;
+            self.weatherSwitchView.hidden = YES;
+            [self displayWeatherGraphView];
+        } else {
+            self.weatherSwitchView.alpha = 1.0f;
+            self.weatherSwitchView.hidden = NO;
+            [self hideWeatherGraphView];
+        }
     } completion:nil];
 }
 
@@ -174,10 +241,6 @@
             return;
         }
     }
-}
-
-- (void)startAnimatingGifWithDelay:(id)gif {
-    [gif startAnimating];
 }
 
 - (void)setMinAndMaxValueForGraph:(NSNumber *)value {

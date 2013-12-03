@@ -60,6 +60,8 @@ static NSString   *WEATHER_CURRENT_LOCATION_IMAGE = @"current_location_icon.png"
 
 // Notification or Sentences
 
+static NSString   *WEATHER_TEST_FLIGHT_ID = @"a55ba6bd-40e6-48d3-a938-2a05173450a2";
+
 static NSString   *WEATHER_APP_ID = @"d944558995e9e4c990a10c9abee19492";
 static NSString   *WEATHER_SAVE_NAME = @"weatherLocations";
 
@@ -92,7 +94,7 @@ static NSString   *WEATHER_LOCATIONS_UP_TO_DATE = @"locationsUpToDate";
 static NSString   *WEATHER_LOCATION_SHOW_LIST = @"showList";
 static NSString   *WEATHER_LOCATION_SHOW_PAGE = @"showPage";
 static NSString   *WEATHER_LOCATION_ERROR_TEMP = @"- -";
-static NSString   *WEATHER_LOCATION_ERROR_CITY = @"Nowhere";
+static NSString   *WEATHER_LOCATION_ERROR_CITY = @"Location error";
 static NSString   *WEATHER_LOCATION_FORECAST_ERROR = @"Forecast Error";
 
 static NSString   *WEATHER_LOCATION_GRAPH_HINT = @"Hour Forecast";
@@ -108,11 +110,12 @@ static NSString   *WEATHER_LOCATION_GRAPH_HINT = @"Hour Forecast";
 #define     WEATHER_GRAPH_LINE_COLOR       [UIColor colorWithRed:(251.f / 255.f) green:(87.f / 255.f) blue:(54.f / 255.f) alpha:1]
 #define     WEATHER_ADD_CITY_BG_COLOR   [UIColor colorWithRed:(94.f / 255.f) green:(186.f / 255.f) blue:(143.f / 255.f) alpha:1]
 
-// Weather add
+// Weather Images
 
 static NSString     *WEATHER_ADD_CITY_IMAGE = @"new_city_icon.png";
 static NSString     *WEATHER_LOCATION_CURRENT_SQUARE = @"current_square.png";
-
+static NSString     *WEATHER_GRAPH_COLLAPSE_DOWN = @"collapse_arrow_down.png";
+static NSString     *WEATHER_GRAPH_COLLAPSE_UP = @"collapse_arrow_up.png";
 // Icon names (OpenWeatherFront)
 
 static NSString     *WEATHER_CLEAR_DESCRIPTION = @"01";

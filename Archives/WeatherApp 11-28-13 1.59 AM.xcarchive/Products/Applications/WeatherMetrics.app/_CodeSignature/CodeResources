@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>files</key>
+	<dict>
+		<key>AppIcon29x29.png</key>
+		<data>
+		UZhuuxFbhA2ZCw536DDfCmP8q0Y=
+		</data>
+		<key>AppIcon29x29@2x.png</key>
+		<data>
+		/32GZ3OdVTYRCfjlCIPL25GCDbs=
+		</data>
+		<key>AppIcon40x40@2x.png</key>
+		<data>
+		Ekcu31Sh4B/USgAglUtl0W/ysro=
+		</data>
+		<key>AppIcon40x40~ipad.png</key>
+		<data>
+		8W/WKxyv63Bu62DnYoiR4wpe5g4=
+		</data>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		vVeQgZQloxQ5ruF/zPv87ihw/Pg=
+		</data>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<data>
+		x6DlV7w9BVOJ54MEpAkSyWl8/qE=
+		</data>
+		<key>AppIcon76x76~ipad.png</key>
+		<data>
+		Uvi/Gtrl2Qwtwe/AriWt6rwxMc4=
+		</data>
+		<key>Assets.car</key>
+		<data>
+		zsjkOqNx6rh5pCmTGvRBR/vGqWs=
+		</data>
+		<key>Images/cloudy big/cloudy_icon.png</key>
+		<data>
+		PL+GXbI/32Bcyamxx78H5o4RyEs=
+		</data>
+		<key>Images/cloudy big/cloudy_icon@2x.png</key>
+		<data>
+		2klXwKSaU7uy0vjfwLBdrFy5ptI=
+		</data>
+		<key>Images/cloudy forecast/cloudy_icon.png</key>
+		<data>
+		OqF18q+OXNNId4+bb3KHcfaGxWo=
+		</data>
+		<key>Images/cloudy forecast/cloudy_icon@2x.png</key>
+		<data>
+		HGhViudETrk8gjGBbNCVumuqQl8=
+		</data>
+		<key>Images/foggy big/foggy_icon.png</key>
+		<data>
+		dLau9sFpWuw1VGwq8ukj41xO/Iw=
+		</data>
+		<key>Images/foggy big/foggy_icon@2x.png</key>
+		<data>
+		EaaH9te9XIP5IqDbWzOscmDziFk=
+		</data>
+		<key>Images/foggy forecast/foggy_icon.png</key>
+		<data>
+		7X2bX2NcyFjaJk3B4wrA4ztnhSQ=
+		</data>
+		<key>Images/foggy forecast/foggy_icon@2x.png</key>
+		<data>
+		dmt5crXRMx15QmPH2EwHME24OuI=
+		</data>
+		<key>Images/partly big/partly_1.png</key>
+		<data>
+		3BusIdYmiRoBbIGkQJlRYbkiuNg=
+		</data>
+		<key>Images/partly big/partly_10.png</key>
+		<data>
+		Ei412388237RwGjW0BujvqYb5Qw=
+		</data>
+		<key>Images/partly big/partly_10@2x.png</key>
+		<data>
+		IWNHf+/5wwdyzH3CM8AdA29WZ3o=
+		</data>
+		<key>Images/partly big/partly_11.png</key>
+		<data>
+		aw29+QqJZDSthPB/TAgyzVeT4TM=
+		</data>
+		<key>Images/partly big/partly_11@2x.png</key>
+		<data>
+		BJU4byPC5DJ86pUecPd5CZxa/Oo=
+		</data>
+		<key>Images/partly big/partly_12.png</key>
+		<data>
+		3ZT7OVmYbWk+ja6ZrxbF8k9tdII=
+		</data>
+		<key>Images/partly big/partly_12@2x.png</key>
+		<data>
+		rkeLKCZoGh4/ZsPxaP7zsW9SlPM=
+		</data>
+		<key>Images/partly big/partly_1@2x.png</key>
+		<data>
+		rkeLKCZoGh4/ZsPxaP7zsW9SlPM=
+		</data>
+		<key>Images/partly big/partly_2.png</key>
+		<data>
+		Xthd7BEmgHGx2MHPUN8O36F3PiU=
+		</data>
+		<key>Images/partly big/partly_2@2x.png</key>
+		<data>
+		BJU4byPC5DJ86pUecPd5CZxa/Oo=
+		</data>
+		<key>Images/partly big/partly_3.png</key>
+		<data>
+		h/4MPvhybEGW574cR8WhFthQmcQ=
+		</data>
+		<key>Images/partly big/partly_3@2x.png</key>
+		<data>
+		IWNHf+/5wwdyzH3CM8AdA29WZ3o=
+		</data>
+		<key>Images/partly big/partly_4.png</key>
+		<data>
+		3SC2UzvBKUO9uhsiebUPLFtmNl0=
+		</data>
+		<key>Images/partly big/partly_4@2x.png</key>
+		<data>
+		A8SgH3zUn/MXSCYWgXsCFhonQTU=
+		</data>
+		<key>Images/partly big/partly_5.png</key>
+		<data>
+		3Ks4HqoDUitsKBp8ErQQRHtc/SQ=
+		</data>
+		<key>Images/partly big/partly_5@2x.png</key>
+		<data>
+		kAJbTp03gCfo6WjYkWsxxE1TBD8=
+		</data>
+		<key>Images/partly big/partly_6.png</key>
+		<data>
+		mE1AotQ9ce8ddbFWsrG1W1Vn0lk=
+		</data>
+		<key>Images/partly big/partly_6@2x.png</key>
+		<data>
+		715IyEM9zdydQu7HtY7ejb6VtMY=
+		</data>
+		<key>Images/partly big/partly_7.png</key>
+		<data>
+		+KfWa/ALkuRVimOORjeX2poWKlw=
+		</data>
+		<key>Images/partly big/partly_7@2x.png</key>
+		<data>
+		715IyEM9zdydQu7HtY7ejb6VtMY=
+		</data>
+		<key>Images/partly big/partly_8.png</key>
+		<data>
+		/AysxdY+k+JHpas6E92n97fZzZg=
+		</data>
+		<key>Images/partly big/partly_8@2x.png</key>
+		<data>
+		kAJbTp03gCfo6WjYkWsxxE1TBD8=
+		</data>
+		<key>Images/partly big/partly_9.png</key>
+		<data>
+		7R6TW57pWDo7VAlXoOYMa3sSrZ8=
+		</data>
+		<key>Images/partly big/partly_9@2x.png</key>
+		<data>
+		A8SgH3zUn/MXSCYWgXsCFhonQTU=
+		</data>
+		<key>Images/partly forecast/partly_forecast_1.png</key>
+		<data>
+		VsE47HNjb4z0hHMlY75u7P1nb7M=
+		</data>
+		<key>Images/partly forecast/partly_forecast_1@2x.png</key>
+		<data>
+		lept0mdTpO3N2rV6pGV7T4c3ZQc=
+		</data>
+		<key>Images/partly forecast/partly_forecast_2.png</key>
+		<data>
+		dB9ggnY2KawTMGC7uOt+pdHx2QE=
+		</data>
+		<key>Images/partly forecast/partly_forecast_2@2x.png</key>
+		<data>
+		h9uC1bxQHU9g0bO3D4FGORC8HTc=
+		</data>
+		<key>Images/partly forecast/partly_forecast_3.png</key>
+		<data>
+		SbPXj6oSk3kjnX96MpdzUxa70Ng=
+		</data>
+		<key>Images/partly forecast/partly_forecast_3@2x.png</key>
+		<data>
+		jSw/C+TGFXxPkRLoOk3/aO6omUI=
+		</data>
+		<key>Images/partly forecast/partly_forecast_4.png</key>
+		<data>
+		95cIzmnQSc/d5UvOKPJCe3wcMDM=
+		</data>
+		<key>Images/partly forecast/partly_forecast_4@2x.png</key>
+		<data>
+		gkBCdwIoyKz2OL/osfZu1vFzje0=
+		</data>
+		<key>Images/partly forecast/partly_forecast_5.png</key>
+		<data>
+		YrFWuUAwVd+uJwf6fgCe8VLfbZA=
+		</data>
+		<key>Images/partly forecast/partly_forecast_5@2x.png</key>
+		<data>
+		TYTKsMGzbRlvYRo+Gc/qjnK/0iA=
+		</data>
+		<key>Images/partly forecast/partly_forecast_6.png</key>
+		<data>
+		QN8aRhTa4uNQ+bR9B7yf7TfdFxA=
+		</data>
+		<key>Images/partly forecast/partly_forecast_6@2x.png</key>
+		<data>
+		RVpcRnuId7BBMxzhyQ9FMO5j8lQ=
+		</data>
+		<key>Images/rain big/rain_1.png</key>
+		<data>
+		412CPAv5jItSIglNRT7pLAGRp8I=
+		</data>
+		<key>Images/rain big/rain_1@2x.png</key>
+		<data>
+		ygAAOkDivrWUWS2j4PjGdY1m08k=
+		</data>
+		<key>Images/rain big/rain_2.png</key>
+		<data>
+		e5GO//twForpWf0qtwVx6nOblP4=
+		</data>
+		<key>Images/rain big/rain_2@2x.png</key>
+		<data>
+		TwOwI9DG9BLWjVjpHYWxxgGZjss=
+		</data>
+		<key>Images/rain big/rain_3.png</key>
+		<data>
+		P5FibdRBVr+xAO+QTdLvaEoEc3M=
+		</data>
+		<key>Images/rain big/rain_3@2x.png</key>
+		<data>
+		3vtOhLo67d5m0o6QPHqtnO4noMg=
+		</data>
+		<key>Images/rain big/rain_4.png</key>
+		<data>
+		pEBirIxdc5netEDrcDC/F/oZAOU=
+		</data>
+		<key>Images/rain big/rain_4@2x.png</key>
+		<data>
+		1GSExSZ/HqWMtlCOntJcWFY+eHk=
+		</data>
+		<key>Images/rain forecast/rain_forecast_1.png</key>
+		<data>
+		KS9ges1d6SJDC9tT45DcMpQjgGg=
+		</data>
+		<key>Images/rain forecast/rain_forecast_1@2x.png</key>
+		<data>
+		zsx6QErj6dkPUx3Pq8PvuK4ubHQ=
+		</data>
+		<key>Images/rain forecast/rain_forecast_2.png</key>
+		<data>
+		6VRv9h54uyMpa4r3AbNIHN3hJeQ=
+		</data>
+		<key>Images/rain forecast/rain_forecast_2@2x.png</key>
+		<data>
+		ntlhNzQAzkiMK0WNwKyViY1f+UE=
+		</data>
+		<key>Images/rain forecast/rain_forecast_3.png</key>
+		<data>
+		Bh7n9GP/Q9hCwL6wzBMD20P51wA=
+		</data>
+		<key>Images/rain forecast/rain_forecast_3@2x.png</key>
+		<data>
+		YjgHfftvLyoK2hIVpg8fC/c6eB8=
+		</data>
+		<key>Images/rain forecast/rain_forecast_4.png</key>
+		<data>
+		X/nqyghCamKWUOHzB49W7hoQ4to=
+		</data>
+		<key>Images/rain forecast/rain_forecast_4@2x.png</key>
+		<data>
+		O+UHjRNuAx1HxWHGcihbOoR77pc=
+		</data>
+		<key>Images/snowy big/snowy_1.png</key>
+		<data>
+		Z49lC95AGFLleQvWcKTp/e/c6GY=
+		</data>
+		<key>Images/snowy big/snowy_1@2x.png</key>
+		<data>
+		oWYeflgqxEtnQF2ktRJWai1GAOw=
+		</data>
+		<key>Images/snowy big/snowy_2.png</key>
+		<data>
+		ZsktfLsN90tpvH2gKUV3TAgaeDY=
+		</data>
+		<key>Images/snowy big/snowy_2@2x.png</key>
+		<data>
+		xpbPW968xW4lJ9EZ49izYxgSvlo=
+		</data>
+		<key>Images/snowy big/snowy_3.png</key>
+		<data>
+		1r3W1tOREra9PMqhLtQ+JHji0Ok=
+		</data>
+		<key>Images/snowy big/snowy_3@2x.png</key>
+		<data>
+		/3uGMHixw7ObRbZxkmdJaRBwOns=
+		</data>
+		<key>Images/snowy big/snowy_4.png</key>
+		<data>
+		1b3mmpvzZDFMtcXgpjS/fOwx0ys=
+		</data>
+		<key>Images/snowy big/snowy_4@2x.png</key>
+		<data>
+		J+82QyZmHguWRMHg33YbXwWEfb8=
+		</data>
+		<key>Images/snowy big/snowy_5.png</key>
+		<data>
+		wFnroh496qxf6vfriw4v09Z9VAI=
+		</data>
+		<key>Images/snowy big/snowy_5@2x.png</key>
+		<data>
+		fL02j/5VHmddTn6I50Q9wjfn3Z8=
+		</data>
+		<key>Images/snowy forecast/snowy_forecast_1.png</key>
+		<data>
+		VDpF0el1Kp3N7NV9uVDOjjXphmM=
+		</data>
+		<key>Images/snowy forecast/snowy_forecast_1@2x.png</key>
+		<data>
+		VMk9keE17UKrVOhw0XrrYGaw6ro=
+		</data>
+		<key>Images/snowy forecast/snowy_forecast_2.png</key>
+		<data>
+		2Hzd9bW1cbUiczGSLEVhU9VrMh8=
+		</data>
+		<key>Images/snowy forecast/snowy_forecast_2@2x.png</key>
+		<data>
+		nkIaFgODD1huNs5h2ZPLgqjsyx8=
+		</data>
+		<key>Images/snowy forecast/snowy_forecast_3.png</key>
+		<data>
+		LiahlrwmlynXFiORtI2Yfnp+3Ck=
+		</data>
+		<key>Images/snowy forecast/snowy_forecast_3@2x.png</key>
+		<data>
+		h7GyJiTGN2gVZJgUkWkHfYzQwt8=
+		</data>
+		<key>Images/snowy forecast/snowy_forecast_4.png</key>
+		<data>
+		U6id4Yl6PehWxwdtPh6gIEXUIgw=
+		</data>
+		<key>Images/snowy forecast/snowy_forecast_4@2x.png</key>
+		<data>
+		84ybAxe0eGrMU9Xfq927q/Lor40=
+		</data>
+		<key>Images/snowy forecast/snowy_forecast_5.png</key>
+		<data>
+		//9Xen8ukYyJ7Y5vKUW6huj0++c=
+		</data>
+		<key>Images/snowy forecast/snowy_forecast_5@2x.png</key>
+		<data>
+		6K66oOOXQp+/AdKQuVQ5ggLRRO4=
+		</data>
+		<key>Images/starry big/starry_1.png</key>
+		<data>
+		AegDy1a8EwMFF1T+Suu7fLEzRi8=
+		</data>
+		<key>Images/starry big/starry_1@2x.png</key>
+		<data>
+		4RdxWkUlBnnOzE+2iV8v8G4QmlM=
+		</data>
+		<key>Images/starry big/starry_2.png</key>
+		<data>
+		OMvXMOyTwD2Y14qXUwR6K+ELNdQ=
+		</data>
+		<key>Images/starry big/starry_2@2x.png</key>
+		<data>
+		fMs2nDWk71mcQytximGBrxO9G7I=
+		</data>
+		<key>Images/starry big/starry_3.png</key>
+		<data>
+		JBysvbsP16ULtk+LpxpH2Jm0kkE=
+		</data>
+		<key>Images/starry big/starry_3@2x.png</key>
+		<data>
+		+YoQJcvN0PjWgFazhYUYUJL9t1Q=
+		</data>
+		<key>Images/starry big/starry_4.png</key>
+		<data>
+		xE8EczdPqUdzl6ZI1WvtAhbP00g=
+		</data>
+		<key>Images/starry big/starry_4@2x.png</key>
+		<data>
+		ENK9jZPFvCnhuonjwPKdGXMrGbI=
+		</data>
+		<key>Images/starry forecast/starry_forecast_1.png</key>
+		<data>
+		jSuvTtBoAAIc1qS4IdCny6dnPFI=
+		</data>
+		<key>Images/starry forecast/starry_forecast_1@2x.png</key>
+		<data>
+		gTfUMTJX5J7X4aJLOy40ygySnWg=
+		</data>
+		<key>Images/starry forecast/starry_forecast_2.png</key>
+		<data>
+		Q3g26uBJaNY1/9ib3ygEi/62+to=
+		</data>
+		<key>Images/starry forecast/starry_forecast_2@2x.png</key>
+		<data>
+		AVeWe7Nh6mKNHqYkNjQkPmmTZlc=
+		</data>
+		<key>Images/starry forecast/starry_forecast_3.png</key>
+		<data>
+		ZdeZg9qVficobqGBgLLVgEwQSqc=
+		</data>
+		<key>Images/starry forecast/starry_forecast_3@2x.png</key>
+		<data>
+		ZQAMOAQxYNL1/dC0r4DhnnjlF4U=
+		</data>
+		<key>Images/starry forecast/starry_forecast_4.png</key>
+		<data>
+		3B38YQxO4H8X8NQ/z2cLYEku9jw=
+		</data>
+		<key>Images/starry forecast/starry_forecast_4@2x.png</key>
+		<data>
+		DYdsY9pyi6uOS3e/UHK5qUysDxA=
+		</data>
+		<key>Images/sunny big/sunny_1.png</key>
+		<data>
+		AGkKpgfhzfj3Qh09/PmkgFoAby0=
+		</data>
+		<key>Images/sunny big/sunny_10.png</key>
+		<data>
+		HVVX17EgdVg86A1bJ6anBpIpFH8=
+		</data>
+		<key>Images/sunny big/sunny_10@2x.png</key>
+		<data>
+		eCSzbhebYszidprPVMb1t4LNWcY=
+		</data>
+		<key>Images/sunny big/sunny_11.png</key>
+		<data>
+		0lL3a6Ky+IMZvapqluLn7e70fc0=
+		</data>
+		<key>Images/sunny big/sunny_11@2x.png</key>
+		<data>
+		daTGAr04Nq1P7DYbNkn79VuT/BQ=
+		</data>
+		<key>Images/sunny big/sunny_12.png</key>
+		<data>
+		LO5CcUz8iAAqJGv27x35QSaGdoI=
+		</data>
+		<key>Images/sunny big/sunny_12@2x.png</key>
+		<data>
+		LNoiu//i3hnBsg/XIH66pTQfcFI=
+		</data>
+		<key>Images/sunny big/sunny_1@2x.png</key>
+		<data>
+		3k3XyCKpiA8mT6/JkXk5CSg97Ms=
+		</data>
+		<key>Images/sunny big/sunny_2.png</key>
+		<data>
+		aWavkXdGkprl1U6v+xXwg90L6Z0=
+		</data>
+		<key>Images/sunny big/sunny_2@2x.png</key>
+		<data>
+		daTGAr04Nq1P7DYbNkn79VuT/BQ=
+		</data>
+		<key>Images/sunny big/sunny_3.png</key>
+		<data>
+		RO43tkoZDu6zJkzWIloHXi1AuDg=
+		</data>
+		<key>Images/sunny big/sunny_3@2x.png</key>
+		<data>
+		eCSzbhebYszidprPVMb1t4LNWcY=
+		</data>
+		<key>Images/sunny big/sunny_4.png</key>
+		<data>
+		f1nlbSIGPWqgu6MhgdlsWvS7VLk=
+		</data>
+		<key>Images/sunny big/sunny_4@2x.png</key>
+		<data>
+		1/QXKxzo7X+TDaMzzaalhE8cri0=
+		</data>
+		<key>Images/sunny big/sunny_5.png</key>
+		<data>
+		Q3GJMwuguzs9tXLi8c265ar5kos=
+		</data>
+		<key>Images/sunny big/sunny_5@2x.png</key>
+		<data>
+		HaWBdYkSwnDUdrp9H37v0wq/ZHg=
+		</data>
+		<key>Images/sunny big/sunny_6.png</key>
+		<data>
+		KnYCxd5NPnOxTlxdemT6c0cRm4Y=
+		</data>
+		<key>Images/sunny big/sunny_6@2x.png</key>
+		<data>
+		xVC8hf7rWmIPshpig/Dvq2/oaEw=
+		</data>
+		<key>Images/sunny big/sunny_7.png</key>
+		<data>
+		5GJqBw5kGwf2pSJNrATJWzhDjyM=
+		</data>
+		<key>Images/sunny big/sunny_7@2x.png</key>
+		<data>
+		xVC8hf7rWmIPshpig/Dvq2/oaEw=
+		</data>
+		<key>Images/sunny big/sunny_8.png</key>
+		<data>
+		/XUojhPY1o5JucIbCRBBkb/RXks=
+		</data>
+		<key>Images/sunny big/sunny_8@2x.png</key>
+		<data>
+		HaWBdYkSwnDUdrp9H37v0wq/ZHg=
+		</data>
+		<key>Images/sunny big/sunny_9.png</key>
+		<data>
+		mtIiMLZNzlLtucD9vUlFuw0tOh4=
+		</data>
+		<key>Images/sunny big/sunny_9@2x.png</key>
+		<data>
+		1/QXKxzo7X+TDaMzzaalhE8cri0=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast@2x.png</key>
+		<data>
+		8+CCC8IIMYmCYhViFLsO2bdj2ro=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_1.png</key>
+		<data>
+		R/vqhel5vcN/ZW4s1zK5arC+5Dg=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_1@2x.png</key>
+		<data>
+		YhvXsElQCJzIS6zfCDUF3wnDrCM=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_2.png</key>
+		<data>
+		SH4JHMN2/4W6KsuYFVEJ67j/PBY=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_2@2x.png</key>
+		<data>
+		ZnosDU2GwSAWu0tjxu0mI3p/7cc=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_3.png</key>
+		<data>
+		Zr/EBSxY76HPOHwLyMXVv0TW7WA=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_3@2x.png</key>
+		<data>
+		SVFiOopLo5OZEzwgiWKI8OZbuM4=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_4.png</key>
+		<data>
+		zhOB0s5Io8wKhMdKnsVpYM5FbSQ=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_4@2x.png</key>
+		<data>
+		862iL3+fv5pQsnnGMd8jt2OKylY=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_5.png</key>
+		<data>
+		Ml8w9ZsgntYZZRiFq6N5pufmj1A=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_5@2x.png</key>
+		<data>
+		dOzvihPTrB3yzhwSL33LcZrzKOI=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_6.png</key>
+		<data>
+		sUL6mpSNrEkTJbBMeXBP0cFt4KI=
+		</data>
+		<key>Images/sunny forecast/sunny_forecast_6@2x.png</key>
+		<data>
+		pVO9GK8BseQKgLu3m5HQY7v/xeg=
+		</data>
+		<key>Images/thunder big/thunder_1.png</key>
+		<data>
+		a4op8chQVj2Dsp3Y1LTIOEKlogc=
+		</data>
+		<key>Images/thunder big/thunder_10.png</key>
+		<data>
+		6uKJ3yH+4ftIZ9KVbVXgrOy6has=
+		</data>
+		<key>Images/thunder big/thunder_10@2x.png</key>
+		<data>
+		3OuFXY2h9wzE+fuVUyVfBgdTLFU=
+		</data>
+		<key>Images/thunder big/thunder_11.png</key>
+		<data>
+		6wGB5MmCfhjibFxehmFukKAxZ3s=
+		</data>
+		<key>Images/thunder big/thunder_11@2x.png</key>
+		<data>
+		iUeeTO0Za0wm8VCWJ51OE60tKeg=
+		</data>
+		<key>Images/thunder big/thunder_12.png</key>
+		<data>
+		h5rWlPlFBpsmZR9vdP+IRhSlK7A=
+		</data>
+		<key>Images/thunder big/thunder_12@2x.png</key>
+		<data>
+		iUeeTO0Za0wm8VCWJ51OE60tKeg=
+		</data>
+		<key>Images/thunder big/thunder_13.png</key>
+		<data>
+		lEgaZZtGUh52CB1VNIEHJKhA50Y=
+		</data>
+		<key>Images/thunder big/thunder_13@2x.png</key>
+		<data>
+		iUeeTO0Za0wm8VCWJ51OE60tKeg=
+		</data>
+		<key>Images/thunder big/thunder_14.png</key>
+		<data>
+		lAoKWOfHnz28JQ3QenuRU16wwEQ=
+		</data>
+		<key>Images/thunder big/thunder_14@2x.png</key>
+		<data>
+		iUeeTO0Za0wm8VCWJ51OE60tKeg=
+		</data>
+		<key>Images/thunder big/thunder_1@2x.png</key>
+		<data>
+		iUeeTO0Za0wm8VCWJ51OE60tKeg=
+		</data>
+		<key>Images/thunder big/thunder_2.png</key>
+		<data>
+		ETtdepY+g0x4D6sOMOnE2tTHLWo=
+		</data>
+		<key>Images/thunder big/thunder_2@2x.png</key>
+		<data>
+		lk0TFagyxEJUAqmSKkTUDUR8aU0=
+		</data>
+		<key>Images/thunder big/thunder_3.png</key>
+		<data>
+		q9J7Vym1IGnk3OtGark3xMihAHI=
+		</data>
+		<key>Images/thunder big/thunder_3@2x.png</key>
+		<data>
+		J/94vSd9le5mTBiqrFyi/u1NQOs=
+		</data>
+		<key>Images/thunder big/thunder_4.png</key>
+		<data>
+		4N5BZGbW0z4llKbIhGExN3lR1/E=
+		</data>
+		<key>Images/thunder big/thunder_4@2x.png</key>
+		<data>
+		6kmIjISj70X+BT/Y3078nc2+G1M=
+		</data>
+		<key>Images/thunder big/thunder_5.png</key>
+		<data>
+		8tl59TXE1BlcggSVDj782U2R+HQ=
+		</data>
+		<key>Images/thunder big/thunder_5@2x.png</key>
+		<data>
+		ExMTjhYAWkp9+TjvfTxoc+SyQiM=
+		</data>
+		<key>Images/thunder big/thunder_6.png</key>
+		<data>
+		CCouryMV2eK2uza0/RcWjJtvOAk=
+		</data>
+		<key>Images/thunder big/thunder_6@2x.png</key>
+		<data>
+		lk0TFagyxEJUAqmSKkTUDUR8aU0=
+		</data>
+		<key>Images/thunder big/thunder_7.png</key>
+		<data>
+		kPEc7HQiIkMqjhlQnbN5iA6/tAQ=
+		</data>
+		<key>Images/thunder big/thunder_7@2x.png</key>
+		<data>
+		J/94vSd9le5mTBiqrFyi/u1NQOs=
+		</data>
+		<key>Images/thunder big/thunder_8.png</key>
+		<data>
+		lRoOcml5qPtm+Z7xSVvydjKwVn0=
+		</data>
+		<key>Images/thunder big/thunder_8@2x.png</key>
+		<data>
+		6kmIjISj70X+BT/Y3078nc2+G1M=
+		</data>
+		<key>Images/thunder big/thunder_9.png</key>
+		<data>
+		8cXnAQQq3ad3K/RZrPguD8rrHLI=
+		</data>
+		<key>Images/thunder big/thunder_9@2x.png</key>
+		<data>
+		ExMTjhYAWkp9+TjvfTxoc+SyQiM=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_1.png</key>
+		<data>
+		NX5AosPe03tnUlNRTbnxpIZjOnE=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_1@2x.png</key>
+		<data>
+		wx4YrzTYlb2ToqmyPbnesCrI2Ho=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_2.png</key>
+		<data>
+		nG3d7976Ei/8IlUAKIBdVh58r1g=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_2@2x.png</key>
+		<data>
+		9ZeLQwUDEIeEVYFNrUZhbF294Ys=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_3.png</key>
+		<data>
+		0m/oJUZomToFU0Yf1o9MXbE4TGU=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_3@2x.png</key>
+		<data>
+		Qyk/G2zYVLrzrHTv+Xa4eWqmxCY=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_4.png</key>
+		<data>
+		3QHaQ3R9BEsL+evfL95C1p+wKOk=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_4@2x.png</key>
+		<data>
+		vR2HyF70Z8/n/cwoiqQTZAuWdDQ=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_5.png</key>
+		<data>
+		Cxt+hy/vwUc9BQrPzkHzfGDTvWg=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_5@2x.png</key>
+		<data>
+		WP8+ns/uIf/hfcJax147Ypvlqsg=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_6.png</key>
+		<data>
+		5+1i21j7TBh5ebS5A0jtK/vVWOI=
+		</data>
+		<key>Images/thunder forecast/thunder_forecast_6@2x.png</key>
+		<data>
+		QEWmOvC5GFjc7yiBGWjbjz3cp7M=
+		</data>
+		<key>LaunchImage-700-568h@2x.png</key>
+		<data>
+		p/cYI1YVcO4s4OScZZMXADFw7H4=
+		</data>
+		<key>LaunchImage@2x.png</key>
+		<data>
+		KFjRoanLUBI65e7fGJSIEDQLDUQ=
+		</data>
+		<key>PkgInfo</key>
+		<data>
+		n57qDP4tZfLD1rCS43W0B4LQjzE=
+		</data>
+		<key>WeatherLocationPageViewController.nib</key>
+		<data>
+		ySmkI+xCNJiQi6NALrhjBOEEd2M=
+		</data>
+		<key>WeatherLocationTableViewController.nib</key>
+		<data>
+		XNBSPH5Cn13lwrqmEF6oG2VzRF0=
+		</data>
+		<key>WeatherLocationViewController.nib</key>
+		<data>
+		kONN/XYpTP3zhyue9R90LRyFchw=
+		</data>
+		<key>WeatherRootViewController.nib</key>
+		<data>
+		JLxUDN6frITrSc32cocXnc/3DUI=
+		</data>
+		<key>archived-expanded-entitlements.xcent</key>
+		<data>
+		n/aoYvXaf3wkQ3wOV4KmacmLlIg=
+		</data>
+		<key>collapse_arrow_down.png</key>
+		<data>
+		0eLHeYtLZBeHqsb4qJ8/GSW6KKs=
+		</data>
+		<key>collapse_arrow_down@2x.png</key>
+		<data>
+		alKGGw4L1BH62hNlkfBwJ9CGWBQ=
+		</data>
+		<key>collapse_arrow_up.png</key>
+		<data>
+		UVL2+rejIFbwfewVVv6u5buSlmI=
+		</data>
+		<key>collapse_arrow_up@2x.png</key>
+		<data>
+		SspjPwzJn2cYHroJspAuXQ7rplo=
+		</data>
+		<key>current_location_icon.png</key>
+		<data>
+		SCysn0Qr5sOZuLAmocr7pXM/Lrg=
+		</data>
+		<key>current_location_icon@2x.png</key>
+		<data>
+		4khyDP196pKwHuAkAolwJYd8BCg=
+		</data>
+		<key>current_square.png</key>
+		<data>
+		coa31IQjezBZBgL7gdbcUEpUoUo=
+		</data>
+		<key>current_square@2x.png</key>
+		<data>
+		zCuBBh2UePoBsnARtQjyyU5AvaU=
+		</data>
+		<key>delete_city_icon.png</key>
+		<data>
+		KnCnnRfLz5N64zjyFzIGR76dXZw=
+		</data>
+		<key>delete_city_icon@2x.png</key>
+		<data>
+		lU+wE06mGuLNrZr36F/MR91TvEc=
+		</data>
+		<key>embedded.mobileprovision</key>
+		<data>
+		jwuF6/ZYFmGb86TR+Q1jJQhYUes=
+		</data>
+		<key>en.lproj/InfoPlist.strings</key>
+		<data>
+		zmV6UqBSo6r1NOz798vd5O4zTBA=
+		</data>
+		<key>gradient_bg_50.png</key>
+		<data>
+		ltqw7iwEvUPhspOw1vvoiv+RcAc=
+		</data>
+		<key>ios6/Icon-40.png</key>
+		<data>
+		nDRMt7+u6qMfu4vf/ZcrE+fXzTQ=
+		</data>
+		<key>ios6/Icon-40@2x.png</key>
+		<data>
+		kYYWBuSyQ4xiSdByhGws0fkqfpM=
+		</data>
+		<key>ios6/Icon-60.png</key>
+		<data>
+		ueq6WpbOnDjpbcmBNLfQ7e9kj8c=
+		</data>
+		<key>ios6/Icon-60@2x.png</key>
+		<data>
+		OZn4T6Y9c1S0eZ04jWKJPfbsEUg=
+		</data>
+		<key>ios6/Icon-76.png</key>
+		<data>
+		CTavO2brqFTqjwNdsmtjoKCI1VQ=
+		</data>
+		<key>ios6/Icon-76@2x.png</key>
+		<data>
+		stgSTqcbvS0OI2O/5hmPSA9bfUk=
+		</data>
+		<key>ios6/Icon-Small.png</key>
+		<data>
+		fP1yCnLgXalFR8f12FMPsm/vUEE=
+		</data>
+		<key>ios6/Icon-Small@2x.png</key>
+		<data>
+		DhH7DTkBhB+4i3QdZ2WenPB2J7Y=
+		</data>
+		<key>ios7/Icon-40.png</key>
+		<data>
+		nDRMt7+u6qMfu4vf/ZcrE+fXzTQ=
+		</data>
+		<key>ios7/Icon-40@2x.png</key>
+		<data>
+		kYYWBuSyQ4xiSdByhGws0fkqfpM=
+		</data>
+		<key>ios7/Icon-60.png</key>
+		<data>
+		ueq6WpbOnDjpbcmBNLfQ7e9kj8c=
+		</data>
+		<key>ios7/Icon-60@2x.png</key>
+		<data>
+		OZn4T6Y9c1S0eZ04jWKJPfbsEUg=
+		</data>
+		<key>ios7/Icon-76.png</key>
+		<data>
+		CTavO2brqFTqjwNdsmtjoKCI1VQ=
+		</data>
+		<key>ios7/Icon-76@2x.png</key>
+		<data>
+		stgSTqcbvS0OI2O/5hmPSA9bfUk=
+		</data>
+		<key>ios7/Icon-Small.png</key>
+		<data>
+		fP1yCnLgXalFR8f12FMPsm/vUEE=
+		</data>
+		<key>ios7/Icon-Small@2x.png</key>
+		<data>
+		DhH7DTkBhB+4i3QdZ2WenPB2J7Y=
+		</data>
+		<key>menu_button.png</key>
+		<data>
+		M00TZ1V/BKLkZ2bl/Z+nT+ydel4=
+		</data>
+		<key>menu_button@2x..png</key>
+		<data>
+		y1JgPnRHQXoVkc6iILv4OIMVxLU=
+		</data>
+		<key>new_city_icon.png</key>
+		<data>
+		WUhQWYgIraqBlakPOD/+C3vUy9s=
+		</data>
+		<key>new_city_icon@2x..png</key>
+		<data>
+		tKuTbPbrasBejpJcwSQUX0MUrpo=
+		</data>
+		<key>new_city_icon@2x.png</key>
+		<data>
+		tKuTbPbrasBejpJcwSQUX0MUrpo=
+		</data>
+		<key>splash_screen.png</key>
+		<data>
+		KFjRoanLUBI65e7fGJSIEDQLDUQ=
+		</data>
+		<key>splash_screen@2x.png</key>
+		<data>
+		p/cYI1YVcO4s4OScZZMXADFw7H4=
+		</data>
+		<key>weather_button.png</key>
+		<data>
+		YgojRawEHO1EIdAOieeaBVTi/P4=
+		</data>
+		<key>weather_button@2x..png</key>
+		<data>
+		v3BY6ynFOTALIPn/+4ci4eAMMIg=
+		</data>
+		<key>weather_metrics_logo.png</key>
+		<data>
+		Vlov3SWT/vvNshZgctionUOV9EE=
+		</data>
+	</dict>
+	<key>rules</key>
+	<dict>
+		<key>.*</key>
+		<true/>
+		<key>Info.plist</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
+		</dict>
+		<key>ResourceRules.plist</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>100</real>
+		</dict>
+	</dict>
+</dict>
+</plist>

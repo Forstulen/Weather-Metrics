@@ -77,7 +77,7 @@
     for (NSDictionary   *dict in self.weatherGraphPoints) {
         NSNumber    *value = [dict safeObjectForKey:@"temp"];
         NSDate      *date = [dict safeObjectForKey:@"date"];
-        NSString    *str = [NSString stringWithFormat:@"%ld°", [weatherManager getConvertedTemperature:value.integerValue]];
+        NSString    *str = [NSString stringWithFormat:@"%ld°", (long)[weatherManager getConvertedTemperature:value.integerValue]];
         UIFont      *font = [UIFont fontWithName:WEATHER_GRAPH_FONT size:8];
         CGSize      size;
         
@@ -90,9 +90,15 @@
         CGContextFillEllipseInRect(context, rect);
         CGContextSaveGState(context);
         CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
-        size = [str sizeWithFont:font];
+        
+        size = [str sizeWithAttributes:@{NSFontAttributeName:font}];
         rect.origin.y += (rect.size.height - size.height) / 2;
-        [str drawInRect:rect withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentCenter];
+        
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+
+        [str drawInRect:rect withAttributes:@{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle, NSForegroundColorAttributeName:[UIColor whiteColor]}];
         currentPoint.x += self.weatherGraphDistanceBetweenPoints;
         rect.origin.x = number * self.weatherGraphDistanceBetweenPoints;
         rect.size.width = self.weatherGraphDistanceBetweenPoints;
@@ -104,7 +110,7 @@
 }
 
 - (void)addLabel:(NSDate *)date WithRect:(CGRect)rect {
-    if (rect.origin.x >= 0 && rect.origin.x <= self.frame.size.width) {
+    if (rect.origin.x >= 0 && rect.origin.x < self.frame.size.width) {
         WeatherLocationsManager *weatherManager = [WeatherLocationsManager sharedWeatherLocationsManager];
         rect.origin.y = WEATHER_GRAPH_LABEL_TOP_PADDING;
         UILabel     *label = [[UILabel alloc] initWithFrame:rect];

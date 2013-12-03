@@ -120,7 +120,7 @@
     
     return [_weatherLocationsDateFormatter stringFromDate:date];
     // Trim 0
-    return [NSString stringWithFormat:@"%ld", [_weatherLocationsDateFormatter stringFromDate:date].integerValue];
+    return [NSString stringWithFormat:@"%ld", (long)[_weatherLocationsDateFormatter stringFromDate:date].integerValue];
 }
 
 - (NSInteger)getConvertedTemperature:(NSInteger)temp {
@@ -234,7 +234,7 @@
 - (void) createWeatherLocationWithForecastWithName:(NSString *)name WithLocation:(WeatherLocation *)city {
     ++_weatherLocationsPendingNumber;
     [_weatherAPI forecastWeatherByCityName:name withCallback:^(NSError *error, NSDictionary *result) {
-        city.weatherLocationName = name;
+        city.weatherLocationName = [name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [self createOrUpdateWeatherLocationWithDict:result WithType:WeatherLocationInformationType3HoursForecasts WithError:error WithCity:city];
     }];
 }
@@ -242,7 +242,7 @@
 - (void) createWeatherLocationWithDailyForecastWithName:(NSString *)name WithLocation:(WeatherLocation *)city {
     ++_weatherLocationsPendingNumber;
     [_weatherAPI dailyForecastWeatherByCityName:name withCount:_weatherLocationsMaxDailyForecast andCallback:^(NSError *error, NSDictionary *result) {
-        city.weatherLocationName = name;
+        city.weatherLocationName = [name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];;
         [self createOrUpdateWeatherLocationWithDict:result WithType:WeatherLocationInformationTypeDailyForecasts WithError:error WithCity:city];
     }];
 }
@@ -250,7 +250,7 @@
 - (void) createWeatherLocationWithCurrentWithName:(NSString *)name WithLocation:(WeatherLocation *)city {
     ++_weatherLocationsPendingNumber;
     [_weatherAPI currentWeatherByCityName:name withCallback:^(NSError *error, NSDictionary *result) {
-        city.weatherLocationName = name;
+        city.weatherLocationName = [name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];;
         [self createOrUpdateWeatherLocationWithDict:result WithType:WeatherLocationInformationTypeCurrentWeather WithError:error WithCity:city];
     }];
 }

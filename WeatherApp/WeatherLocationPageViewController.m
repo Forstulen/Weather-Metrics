@@ -9,7 +9,6 @@
 #import "WeatherLocationPageViewController.h"
 #import "WeatherLocationViewController.h"
 #import "WeatherLocationsManager.h"
-#import "WeatherPageControl.h"
 #import "defines.h"
 
 @interface WeatherLocationPageViewController ()
@@ -54,35 +53,7 @@
     pageControl.pageIndicatorTintColor = WEATHER_LIGH_GREY_BG_COLOR;
     pageControl.currentPageIndicatorTintColor = WEATHER_MEDIUM_GREY_HIGHLIGHT_COLOR;
     pageControl.backgroundColor = [UIColor whiteColor];
-    
-/*    NSArray *subviews = _weatherLocationPageController.view.subviews;
-    UIPageControl *thisControl = nil;
-    for (int i=0; i<[subviews count]; i++) {
-        if ([[subviews objectAtIndex:i] isKindOfClass:[UIPageControl class]]) {
-            thisControl = (UIPageControl *)[subviews objectAtIndex:i];
-        }
-    }
-    for (UIView *img in thisControl.subviews) {
-        UIImageView* dot = nil;
-        
-        for (UIView* subview in img.subviews)
-        {
-            if ([subview isKindOfClass:[UIImageView class]])
-            {
-                dot = (UIImageView*)subview;
-                break;
-            }
-        }
-        
-        if (dot == nil)
-        {
-            dot = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, img.frame.size.width, img.frame.size.height)];
-            [img addSubview:dot];
-        }
-        dot.contentMode = UIViewContentModeScaleAspectFit;
-        dot.image = [UIImage imageNamed:WEATHER_CURRENT_LOCATION_IMAGE];
-    }
-*/    
+      
     [self addChildViewController:_weatherLocationPageController];
     [[self view] addSubview:_weatherLocationPageController.view];
     [_weatherLocationPageController didMoveToParentViewController:self];

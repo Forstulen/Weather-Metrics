@@ -81,5 +81,6 @@ typedef enum  {
 @property (nonatomic, readonly) BOOL        weatherLocationNightTime;
 @property (nonatomic, readwrite) BOOL       weatherLocationCurrent;
 @property (nonatomic, readwrite) BOOL       weatherLocationError;
+@property (nonatomic, readwrite) BOOL       weatherLocationDisplayForecast;
 
 @end
