@@ -41,10 +41,14 @@
         _weatherUserLocationManager.delegate = self;
         _weatherUserLocationManager.desiredAccuracy = _weatherUserLocationAccuracy;
         _weatherUserLocationManager.distanceFilter = _weatherUserLocationDistance;
-        [_weatherUserLocationManager startUpdatingLocation];
-    } else {
-        [_weatherUserLocationManager startUpdatingLocation];
     }
+    
+    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+    if ([_weatherUserLocationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [_weatherUserLocationManager requestWhenInUseAuthorization];
+    }
+    [_weatherUserLocationManager startUpdatingLocation];
+    
 }
 
 - (void)stopUserLocation {

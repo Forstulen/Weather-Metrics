@@ -70,17 +70,13 @@
 }
 
 - (void)handleSwipeUpFrom:(id)sender {
-    if (!_weatherLocation.weatherLocationDisplayForecast) {
-        _weatherLocation.weatherLocationDisplayForecast = YES;
-        [self animateViewFrame];
-    }
+    _weatherLocation.weatherLocationDisplayForecast = YES;
+    [self animateViewFrame];
 }
 
 - (void)handleSwipeDownFrom:(id)sender {
-    if (_weatherLocation.weatherLocationDisplayForecast) {
-        _weatherLocation.weatherLocationDisplayForecast = NO;
-        [self animateViewFrame];
-    }
+    _weatherLocation.weatherLocationDisplayForecast = NO;
+    [self animateViewFrame];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -89,22 +85,25 @@
     
     _weatherLocationsManager = [WeatherLocationsManager sharedWeatherLocationsManager];
     [_weatherLocationsManager updateLocation:_weatherLocation];
+    
     [self buildWeatherAndGraph:nil];
     
-    if (_weatherLocation.weatherLocationDisplayForecast) {
-        self.weatherSwitchView.alpha = 0.0f;
-        self.weatherSwitchView.hidden = YES;
-        [self displayWeatherGraphView];
-    } else {
+    if (!_weatherLocation.weatherLocationDisplayForecast) {
         self.weatherSwitchView.alpha = 1.0f;
         self.weatherSwitchView.hidden = NO;
-        [self hideWeatherGraphView];
+        self.weatherGraphMaskLeadingAlignment.constant = 0;
+        [self.view layoutIfNeeded];
     }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self displayWeatherGraphView];
+    
+    if (_weatherLocation.weatherLocationDisplayForecast) {
+        self.weatherSwitchView.alpha = 0.0f;
+        self.weatherSwitchView.hidden = YES;
+        [self displayWeatherGraphView];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -143,11 +142,9 @@
         
         self.weatherForeCastIcons.backgroundColor = self.weatherBackground.backgroundColor;
         self.weatherCurrentTemp.attributedText = [NSMutableAttributedString mutableAttributedStringWithText:[NSString stringWithFormat:@"%ld%@", (long)[_weatherLocationsManager getConvertedTemperature:_weatherLocation.weatherLocationTemp.integerValue], @"°"] withKerning:0];
-        self.weatherCityName.attributedText = [NSMutableAttributedString mutableAttributedStringWithText:_weatherLocation.weatherLocationName withKerning:2];
+        self.weatherCityName.attributedText = [NSMutableAttributedString mutableAttributedStringWithText:[NSString stringWithFormat:@"%@, %@", _weatherLocation.weatherLocationName, _weatherLocation.weatherLocationCountry] withKerning:2];
     } else {
         self.weatherCityName.attributedText = [NSMutableAttributedString mutableAttributedStringWithText:WEATHER_LOCATION_ERROR_CITY withKerning:2];
-        _weatherLocation.weatherLocationDisplayForecast = NO;
-        [self animateViewFrame];
         if (_weatherLocation) {
             [_weatherLocationsManager updateLocation:_weatherLocation];
         }
@@ -156,15 +153,17 @@
 
 - (void)displayWeatherGraphView {
     if (_weatherLocation.weatherLocationDisplayForecast) {
-        self.weatherGraphMaskLeadingAlignment.constant = self.weatherGraphMask.frame.size.  width;
-        [UIView animateWithDuration:0.5f delay:0.1f options:UIViewAnimationOptionCurveEaseInOut animations:^() {
-            [self.view layoutIfNeeded];
-        } completion:nil];
+        if (self.weatherGraphMaskLeadingAlignment.constant < self.weatherGraphMask.frame.size.width) {
+            self.weatherGraphMaskLeadingAlignment.constant = self.weatherGraphMask.frame.size.width;
+            [UIView animateWithDuration:0.5f delay:0.1f options:UIViewAnimationOptionCurveEaseInOut animations:^() {
+                [self.view layoutIfNeeded];
+            } completion:nil];
+        }
     }
 }
 
 - (void)hideWeatherGraphView {
-    if (_weatherLocation.weatherLocationDisplayForecast) {
+    if (!_weatherLocation.weatherLocationDisplayForecast) {
         self.weatherGraphMaskLeadingAlignment.constant = 0;
         [UIView animateWithDuration:0.1f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^() {
             [self.view layoutIfNeeded];
@@ -185,7 +184,7 @@
 - (void)animateViewFrame {
     self.weatherSwitchView.alpha = 0.0f;
     [UIView animateWithDuration:.2f delay:0 options:UIViewAnimationOptionTransitionCrossDissolve    animations:^() {
-        if (_weatherLocation.weatherLocationDisplayForecast) {
+        if (self->_weatherLocation.weatherLocationDisplayForecast) {
             self.weatherSwitchView.alpha = 0.0f;
             self.weatherSwitchView.hidden = YES;
             [self displayWeatherGraphView];

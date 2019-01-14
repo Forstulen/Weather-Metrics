@@ -40,7 +40,12 @@
     [NSTimer scheduledTimerWithTimeInterval:WEATHER_CLOCK_INTERVAL target:self selector:@selector(createClock) userInfo:nil repeats:YES];
     _weatherLocationClock = [UILabel new];
     
-    [self.tableView addSubview:_weatherLocationTableRefresh];
+    if (@available(iOS 10, *)) {
+        self.tableView.refreshControl = _weatherLocationTableRefresh;
+    } else {
+        [self.tableView addSubview:_weatherLocationTableRefresh];
+    }
+    
     self.tableView.tableFooterView = _weatherLocationIndicator;
     [self createClock];
     [self createHeader];
@@ -256,6 +261,7 @@
         WeatherAddCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[WeatherAddCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell.editing = NO;
         }
         return cell;
     }
@@ -265,7 +271,7 @@
     if (indexPath.row != 0) {
         [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATION_SHOW_PAGE object:nil userInfo:@{@"index":[NSNumber numberWithInteger:indexPath.row - 1]}];
     } else {
-        _weatherLocationAddLocation = [[UIAlertView alloc] initWithTitle:WEATHER_LOCATION_ALERT_TITLE message:nil
+        _weatherLocationAddLocation = [[UIAlertView alloc] initWithTitle:WEATHER_LOCATION_ALERT_TITLE message:WEATHER_LOCATION_ALERT_HINT
                                                          delegate:self
                                                 cancelButtonTitle:WEATHER_LOCATION_ALERT_CANCEL_BUTTON_TITLE otherButtonTitles:WEATHER_LOCATION_ALERT_VALIDATE_BUTTON_TITLE, nil];
 
@@ -273,6 +279,13 @@
         [_weatherLocationAddLocation textFieldAtIndex:0].delegate = self;
         [_weatherLocationAddLocation show];
     }
+}
+    
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return NO;
+    }
+    return YES;
 }
 
 - (void)checkNewLocation:(NSString *)name {

@@ -60,9 +60,7 @@ static NSString   *WEATHER_CURRENT_LOCATION_IMAGE = @"current_location_icon.png"
 
 // Notification or Sentences
 
-static NSString   *WEATHER_TEST_FLIGHT_ID = @"a55ba6bd-40e6-48d3-a938-2a05173450a2";
-
-static NSString   *WEATHER_APP_ID = @"d944558995e9e4c990a10c9abee19492";
+static NSString   *WEATHER_APP_ID = @"925d6aff668a874ec4f7b081994f4d09";
 static NSString   *WEATHER_SAVE_NAME = @"weatherLocations";
 
 static NSString   *WEATHER_ROOT_LOADING = @"Loading existing locations";
@@ -74,6 +72,7 @@ static NSString   *WEATHER_LOCATION_WARNING_BUTTON_TITLE = @"Ok";
 static NSString   *WEATHER_LOCATION_ALERT_VALIDATE_BUTTON_TITLE = @"Ok";
 static NSString   *WEATHER_LOCATION_ALERT_CANCEL_BUTTON_TITLE = @"Cancel";
 static NSString   *WEATHER_LOCATION_ALERT_TITLE = @"Select a city";
+static NSString   *WEATHER_LOCATION_ALERT_HINT = @"You can add the country code like \"Paris, FR\" to get the right city";
 
 static NSString   *WEATHER_LOCATION_ALERT_FAIL_TITLE = @"Weather Error";
 static NSString   *WEATHER_LOCATION_ALERT_FAIL_MESSAGE = @"An error has occured. Check the name of the city or your network";

@@ -285,6 +285,8 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:WEATHER_LOCATION_UPDATED object:@{@"location":location}];
         [self checkError:error WithLocation:location];
     }
+    
+    location.weatherLocationDisplayForecast = NO;
 }
 
 - (void)checkError:(NSError *)error WithLocation:(WeatherLocation *)location {

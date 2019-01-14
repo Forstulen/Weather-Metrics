@@ -27,7 +27,7 @@
 - (instancetype) initWithAPIKey:(NSString *) apiKey {
     self = [super init];
     if (self) {
-        _baseURL = @"http://api.openweathermap.org/data/";
+        _baseURL = @"https://api.openweathermap.org/data/";
         _apiKey  = apiKey;
         _apiVersion = @"2.5";
         
